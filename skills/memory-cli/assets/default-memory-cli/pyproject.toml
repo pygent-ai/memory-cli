@@ -1,0 +1,13 @@
+[project]
+name = "memory-cli"
+version = "0.1.0"
+description = "UT-driven agent memory CLI"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+memory-cli = "memory_cli.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

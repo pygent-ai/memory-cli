@@ -1,0 +1,4 @@
+interface:
+  display_name: "Memory CLI"
+  short_description: "Build and maintain a test-driven memory CLI."
+  default_prompt: "Use this skill to initialize, query, test, and optimize a local memory CLI where durable memories are represented as retrieval tests."

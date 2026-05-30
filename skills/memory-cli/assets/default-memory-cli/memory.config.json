@@ -1,0 +1,10 @@
+{
+  "priority_thresholds": {
+    "blocking_failure": 80,
+    "warning_failure": 40
+  },
+  "performance_budget_ms": {
+    "p95_search": 200,
+    "full_test_suite": 5000
+  }
+}

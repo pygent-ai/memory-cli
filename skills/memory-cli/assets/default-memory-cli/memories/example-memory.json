@@ -1,0 +1,19 @@
+{
+  "id": "mem-2026-05-30-memory-as-tests",
+  "priority": 90,
+  "content": "The memory system treats durable memory as retrieval unit tests. Adding memory means adding test cases, and retrieval should happen through a stable CLI contract.",
+  "queries": [
+    "memory system unit tests",
+    "how should agent memory be stored",
+    "UT driven memory retrieval"
+  ],
+  "must_include": [
+    "retrieval unit tests",
+    "Adding memory means adding test cases",
+    "stable CLI contract"
+  ],
+  "tags": ["memory", "testing", "skill"],
+  "source": "default template",
+  "created_at": "2026-05-30"
+}
+
