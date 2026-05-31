@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Skill architecture</title>
+  <desc id="desc">The memory-cli skill package contains workflow instructions, references, templates, and tests.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}
+      .title{font:700 40px Arial,sans-serif;fill:#172033}
+      .sub{font:400 20px Arial,sans-serif;fill:#526071}
+      .box{fill:#fff;stroke:#d8e0e8;stroke-width:2}
+      .head{font:700 22px Arial,sans-serif;fill:#172033}
+      .txt{font:400 17px Arial,sans-serif;fill:#526071}
+      .path{font:700 16px Consolas,monospace;fill:#344054}
+      .line{stroke:#8a98a8;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="1200" height="560" rx="28" class="bg"/>
+  <text x="70" y="78" class="title">What the skill gives an agent</text>
+  <text x="72" y="114" class="sub">A copyable, runnable, testable, and upgradeable starting point for durable memory.</text>
+
+  <rect x="70" y="175" width="250" height="125" rx="16" class="box"/>
+  <text x="100" y="215" class="head">Workflow</text>
+  <text x="100" y="247" class="path">SKILL.md</text>
+  <text x="100" y="276" class="txt">Find a project, query memory,</text>
+  <text x="100" y="300" class="txt">check conflicts, verify results</text>
+
+  <rect x="475" y="165" width="250" height="145" rx="16" fill="#172033"/>
+  <text x="525" y="216" style="font:700 25px Arial,sans-serif;fill:#fff">memory-cli</text>
+  <text x="520" y="253" style="font:400 18px Arial,sans-serif;fill:#d7e3f5">stable command contract</text>
+  <text x="543" y="285" style="font:700 16px Consolas,monospace;fill:#fff">search / add / test / bench</text>
+
+  <rect x="880" y="175" width="250" height="125" rx="16" class="box"/>
+  <text x="910" y="215" class="head">References</text>
+  <text x="910" y="247" class="path">references/*.md</text>
+  <text x="910" y="276" class="txt">Record contract, extraction,</text>
+  <text x="910" y="300" class="txt">and retrieval optimization</text>
+
+  <rect x="185" y="375" width="250" height="115" rx="16" class="box"/>
+  <text x="215" y="414" class="head">Templates</text>
+  <text x="215" y="446" class="path">default-memory-cli-*</text>
+  <text x="215" y="475" class="txt">Python / JS / TS starters</text>
+
+  <rect x="765" y="375" width="250" height="115" rx="16" class="box"/>
+  <text x="795" y="414" class="head">Regression checks</text>
+  <text x="795" y="446" class="path">tests/</text>
+  <text x="795" y="475" class="txt">Protect template contracts</text>
+
+  <path d="M320 238h143" class="line"/>
+  <path d="M446 224l19 14-19 14" class="line"/>
+  <path d="M725 238h143" class="line"/>
+  <path d="M851 224l19 14-19 14" class="line"/>
+  <path d="M518 310c-47 37-96 61-148 73" class="line"/>
+  <path d="M391 363l-26 22 34 5" class="line"/>
+  <path d="M682 310c48 37 97 61 149 73" class="line"/>
+  <path d="M804 390l34-5-26-22" class="line"/>
+</svg>

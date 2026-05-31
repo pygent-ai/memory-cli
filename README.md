@@ -1,75 +1,205 @@
 # Memory CLI Skill
 
-This repository contains the design and first implementation of a Codex skill for building an agent-owned memory system.
+[中文说明](README.zh.md)
 
-The core idea is simple:
+![Memory CLI overview](docs/assets/memory-cli-overview.svg)
 
-> A memory is not just stored text. A memory is a retrieval behavior that must keep passing tests.
+This repository provides an agent-oriented memory system skill. It does not ask an agent to keep a static note file, and it does not prescribe one fixed database. Instead, it teaches an agent to build, use, test, and continuously improve a long-term memory system inside its own workspace.
 
-The skill lives in `skills/memory-cli`. The design principles live in `docs/`.
+The core idea is: memory is not "stored text"; it is "behavior that can be retrieved correctly later." An important memory enters the system with retrieval tests. Only when realistic queries can find it again does it count as truly remembered.
 
-## Structure
+## What This Project Solves
+
+Many agent memory systems drift into one of two shapes: unverifiable chat summaries, or external black-box storage. `memory-cli` takes a different path. It lets an agent maintain a local memory project, read and write memories through a stable CLI contract, define reliability with tests, and use performance benchmarks to guide retrieval upgrades.
+
+That means the memory system can grow through use:
+
+- New memories become testable retrieval cases before they enter long-term storage.
+- Old memories can be updated, deprioritized, or retired without being casually deleted.
+- When retrieval becomes slow or inaccurate, the agent can optimize the internals without breaking the command contract.
+- Future agents can understand why the memory system exists and how to maintain it by reading the tests and documentation.
+
+## Skill Package
+
+`skills/memory-cli` is the core skill package in this repository. It contains the main skill instructions, three default project templates, three reference documents, and an agent configuration example.
 
 ```text
 docs/
   memory-system-design.md
+  assets/
 skills/
   memory-cli/
     SKILL.md
     agents/openai.yaml
     references/
-    assets/default-memory-cli-py/
-    assets/default-memory-cli-js/
-    assets/default-memory-cli-ts/
+      memory-test-contract.md
+      memory-extraction-guide.md
+      retrieval-optimization-guide.md
+    assets/
+      default-memory-cli-py/
+      default-memory-cli-js/
+      default-memory-cli-ts/
+tests/
+  test_skill_templates.py
 ```
 
-## What This Skill Does
+### `SKILL.md`
 
-The `memory-cli` skill guides an agent to:
+The main skill file defines how an agent should work with this memory system:
 
-- initialize a local memory CLI project,
-- represent memories as retrieval test cases,
-- retrieve memories through a command-line contract,
-- add new memories by adding tests,
-- optimize retrieval logic when correctness or performance degrades.
+- First look for an existing `memory-cli`, `.memory`, or `memory` project in the current workspace.
+- If no project exists, copy the most suitable default template.
+- Before tasks that may depend on durable context, query memory with `memory-cli search`.
+- Before adding memory, write a candidate memory JSON file and check it with `check-conflicts`.
+- After changing memories or retrieval logic, run `memory-cli test` and `memory-cli bench`.
+- When correctness or performance breaks, fix the memory cases or retrieval implementation instead of weakening high-value memories.
 
-The default templates are intentionally minimal. The `-py` template is a `uv` Python CLI project, the `-js` template is a Node.js JavaScript project, and the `-ts` template is a Node.js TypeScript project. All three use JSON memory cases and simple keyword matching so the first version always works. Agents may later replace the retrieval implementation with indexing, SQLite FTS, vectors, caching, or a hybrid design as the memory test suite grows.
+### Default Templates
 
-## Quick Start For Agents
+The repository includes three copyable starting points:
 
-Install or copy the skill folder into a Codex skills directory, then ask Codex to use `memory-cli` when it needs to build or maintain durable memory.
+- `assets/default-memory-cli-py/`: Python + `uv`, suitable for fast setup and minimal dependencies.
+- `assets/default-memory-cli-js/`: Node.js JavaScript, suitable for lightweight scripting environments.
+- `assets/default-memory-cli-ts/`: Node.js TypeScript, suitable for projects that want type checking.
 
-The skill carries a default project template at:
+All three templates start with JSON files and simple keyword matching. Early memory systems do not need elaborate architecture; they need a project that runs, can be tested, and can be understood by future maintainers.
 
-```text
-skills/memory-cli/assets/default-memory-cli-py/
-skills/memory-cli/assets/default-memory-cli-js/
-skills/memory-cli/assets/default-memory-cli-ts/
-```
+### Reference Documents
 
-The Python template can be copied into a workspace and installed with `uv`:
+`references/memory-test-contract.md` defines the JSON structure, command semantics, conflict handling, and test-passing rules for memory records. It turns "what was remembered" into an auditable regression contract.
+
+`references/memory-extraction-guide.md` guides agents as they extract answerable facts from conversations, documents, project history, or external material. It emphasizes entities, aliases, time, location, relationships, and state changes instead of broad summaries.
+
+`references/retrieval-optimization-guide.md` describes retrieval upgrade paths: text normalization, keyword weighting, inverted indexes, SQLite FTS, vector retrieval, and hybrid ranking. Optimization should serve tests and performance evidence, not technical complexity for its own sake.
+
+## How Memory Grows
+
+![Memory lifecycle](docs/assets/memory-lifecycle.svg)
+
+A healthy agent memory system follows a loop:
+
+1. **Extract**: Identify facts worth retaining from tasks, conversations, documents, or code history.
+2. **Model**: Write those facts as memory records with `queries` and `must_include`.
+3. **Check conflicts**: Run candidate queries against existing memory, and ask the user or maintainer to decide when facts contradict each other.
+4. **Add**: Add the memory after conflict checks pass, or merge it into a better existing memory.
+5. **Retrieve**: Query relevant memories before starting work so durable context returns to the task.
+6. **Regress**: Run tests to confirm important memories can still be found by future natural-language queries.
+7. **Optimize**: Upgrade the internal implementation when test quality, retrieval speed, or recall begins to degrade.
+
+The point is not to "save more." The point is for each memory to participate in future behavior. As the memory system grows, the test suite grows with it. As the test suite becomes richer, the agent can improve retrieval with confidence.
+
+## Command Contract
+
+All templates are built around the same command surface:
 
 ```bash
-uv tool install -e .
-```
-
-After installation, run it directly:
-
-```bash
-memory-cli init
-memory-cli search "memory skill"
-memory-cli check-conflicts --file candidate.json
-memory-cli add --file memory.json
+memory-cli init [--path <dir>]
+memory-cli search <query>
+memory-cli check-conflicts --file <candidate.json>
+memory-cli add --file <memory.json> [--force]
 memory-cli list
-memory-cli show mem-2026-05-30-memory-as-tests
-memory-cli update mem-2026-05-30-memory-as-tests --file updates.json
-memory-cli retire mem-2026-05-30-memory-as-tests --reason "stale"
+memory-cli show <id>
+memory-cli update <id> --file <updates.json>
+memory-cli retire <id> [--reason <text>]
 memory-cli test
 memory-cli bench
 ```
 
-During template development, `uv run memory-cli ...` works without installing the command globally.
+This command surface should stay stable. An agent may replace JSON scanning with an inverted index, SQLite FTS, vector retrieval, or hybrid ranking, but the outer workflow should keep depending on the same commands and JSON output shape.
 
-For the JavaScript template, use `npm test` or `node src/cli.js ...` during development.
+## Memory Records
 
-For the TypeScript template, run `npm install` once, then use `npm test` or `npm run build` during development.
+A memory contains at least these fields:
+
+```json
+{
+  "id": "mem-stable-id",
+  "priority": 80,
+  "content": "The durable memory text.",
+  "queries": ["query one", "query two"],
+  "must_include": ["required phrase"]
+}
+```
+
+Recommended optional fields:
+
+```json
+{
+  "status": "active",
+  "tags": ["project", "preference"],
+  "source": "user conversation",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30"
+}
+```
+
+`priority` is operational, not decorative. It affects ranking, failure severity, and optimization priority:
+
+```text
+100 = identity, hard constraints, long-term user preferences
+80  = important project decisions
+60  = common habits and workflow preferences
+40  = temporary but still useful context
+20  = low-value historical notes
+```
+
+## Daily Agent Workflow
+
+![Skill package architecture](docs/assets/skill-architecture.svg)
+
+A typical workflow looks like this:
+
+```bash
+# After copying a template project, install or run it from the template directory.
+uv tool install -e .
+
+# Retrieve relevant durable context before starting work.
+memory-cli search "memory skill"
+
+# Check whether a candidate memory conflicts with existing memory.
+memory-cli check-conflicts --file candidate.json
+
+# Add the memory after conflict checks pass.
+memory-cli add --file memory.json
+
+# Verify correctness and performance after changing memories or retrieval code.
+memory-cli test
+memory-cli bench
+```
+
+During template development, global installation is optional:
+
+```bash
+# Python
+uv run memory-cli search "test driven memory"
+
+# JavaScript
+node src/cli.js search "test driven memory"
+
+# TypeScript
+npm install
+npm test
+npm run build
+```
+
+## Why Use Tests To Define Memory
+
+Tested memory gives an agent three abilities.
+
+First, **self-checking**. The agent does not need to trust that a memory "should be searchable"; it can run the query and inspect the result.
+
+Second, **maintainable growth**. As memory count increases, the agent can optimize retrieval while old tests protect existing behavior.
+
+Third, **cross-session continuity**. Future agents do not need to guess why the system was designed this way. They can read the records, run the tests, inspect the benchmarks, and keep extending the system.
+
+That is the central positioning of this project: it is not a finished memory database product. It is a skill that lets an agent build its own memory capability. Ownership stays with the agent, and the growth path emerges through everyday use, verification, and optimization.
+
+## Development Verification
+
+The current repository tests mainly check that the skill package and default templates keep their contracts aligned:
+
+```bash
+python -m unittest
+```
+
+When changing template paths, README template descriptions, `package.json` bin configuration, or test scripts, update tests and documentation together.

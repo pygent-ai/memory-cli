@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Memory lifecycle</title>
+  <desc id="desc">A loop showing extract, model, check conflicts, add, retrieve, test, and optimize.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbfcf8}
+      .title{font:700 40px Arial,sans-serif;fill:#182235}
+      .sub{font:400 20px Arial,sans-serif;fill:#526071}
+      .node{fill:#fff;stroke:#d7ddcb;stroke-width:2}
+      .ntext{font:700 21px Arial,sans-serif;fill:#172033}
+      .small{font:400 15px Arial,sans-serif;fill:#566275}
+      .num{font:700 22px Arial,sans-serif;fill:#fff}
+      .arrow{stroke:#6f7f5f;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="1200" height="620" rx="28" class="bg"/>
+  <text x="70" y="80" class="title">Memory grows through a tested loop</text>
+  <text x="72" y="116" class="sub">Every use, addition, and optimization makes durable agent memory more reliable.</text>
+
+  <circle cx="600" cy="340" r="118" fill="#eef7ed" stroke="#cbdcc6" stroke-width="2"/>
+  <text x="522" y="325" style="font:700 25px Arial,sans-serif;fill:#1f3d2b">Agent</text>
+  <text x="496" y="360" style="font:400 18px Arial,sans-serif;fill:#45604e">owns the memory</text>
+  <text x="485" y="390" style="font:400 18px Arial,sans-serif;fill:#45604e">and keeps it alive</text>
+
+  <g transform="translate(482 142)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#2f80ed"/><text x="31" y="47" class="num">1</text>
+    <text x="76" y="33" class="ntext">Extract facts</text>
+    <text x="76" y="58" class="small">Entities, time, source</text>
+  </g>
+  <g transform="translate(806 242)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#27ae60"/><text x="31" y="47" class="num">2</text>
+    <text x="76" y="33" class="ntext">Model as tests</text>
+    <text x="76" y="58" class="small">queries + must_include</text>
+  </g>
+  <g transform="translate(806 430)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#f2994a"/><text x="31" y="47" class="num">3</text>
+    <text x="76" y="33" class="ntext">Check conflicts</text>
+    <text x="76" y="58" class="small">Compare existing memory</text>
+  </g>
+  <g transform="translate(482 500)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#9b51e0"/><text x="31" y="47" class="num">4</text>
+    <text x="76" y="33" class="ntext">Add or merge</text>
+    <text x="76" y="58" class="small">Keep audit history</text>
+  </g>
+  <g transform="translate(158 430)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#eb5757"/><text x="31" y="47" class="num">5</text>
+    <text x="76" y="33" class="ntext">Retrieve first</text>
+    <text x="76" y="58" class="small">Bring context back</text>
+  </g>
+  <g transform="translate(158 242)">
+    <rect width="236" height="78" rx="18" class="node"/>
+    <circle cx="38" cy="39" r="22" fill="#2d9cdb"/><text x="31" y="47" class="num">6</text>
+    <text x="76" y="33" class="ntext">Regress + bench</text>
+    <text x="76" y="58" class="small">test + bench</text>
+  </g>
+
+  <path d="M715 188c74 8 130 38 164 79" class="arrow"/>
+  <path d="M866 256l18 18-25 8" class="arrow"/>
+  <path d="M925 320c0 34 0 64 0 98" class="arrow"/>
+  <path d="M911 402l14 24 14-24" class="arrow"/>
+  <path d="M806 489c-44 39-88 54-118 58" class="arrow"/>
+  <path d="M706 532l-24 16 28 10" class="arrow"/>
+  <path d="M482 548c-63-4-111-21-145-53" class="arrow"/>
+  <path d="M357 492l-28-5 11 26" class="arrow"/>
+  <path d="M276 430c0-34 0-64 0-98" class="arrow"/>
+  <path d="M262 348l14-24 14 24" class="arrow"/>
+  <path d="M394 276c42-49 90-72 134-81" class="arrow"/>
+  <path d="M508 183l28 10-22 19" class="arrow"/>
+</svg>
