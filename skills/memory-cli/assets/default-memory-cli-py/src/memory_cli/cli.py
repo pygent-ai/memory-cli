@@ -8,9 +8,45 @@ from datetime import date
 from pathlib import Path
 
 
-ROOT = Path.cwd()
+def is_memory_project(path):
+    return (path / "memory.config.json").exists() or (path / "memories").is_dir()
+
+
+def resolve_memory_root(start=None):
+    current = Path(start or Path.cwd()).resolve()
+    if is_memory_project(current):
+        return current
+    if is_memory_project(current / ".memory"):
+        return current / ".memory"
+    for parent in current.parents:
+        candidate = parent / ".memory"
+        if is_memory_project(candidate):
+            return candidate
+    return current
+
+
+ROOT = resolve_memory_root()
 MEMORY_DIR = ROOT / "memories"
 CONFIG_PATH = ROOT / "memory.config.json"
+
+
+def set_paths(next_root):
+    global ROOT, MEMORY_DIR, CONFIG_PATH
+    ROOT = resolve_memory_root(next_root)
+    MEMORY_DIR = ROOT / "memories"
+    CONFIG_PATH = ROOT / "memory.config.json"
+
+
+def memory_project_exists():
+    return is_memory_project(ROOT)
+
+
+def missing_project_error():
+    return {
+        "error": "memory_project_not_found",
+        "path": str(ROOT),
+        "message": "No memory project found. Run from a memory project or a parent directory containing .memory.",
+    }
 
 
 def load_config():
@@ -334,6 +370,10 @@ def main(argv=None):
     sub.add_parser("bench")
 
     args = parser.parse_args(argv)
+
+    if args.command != "init" and not memory_project_exists():
+        print(json.dumps(missing_project_error(), ensure_ascii=False, indent=2))
+        return 1
 
     handlers = {
         "init": lambda: (init_project(args.path), 0),

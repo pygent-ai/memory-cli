@@ -148,6 +148,52 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         self.assertEqual("mem-first", listed["memories"][0]["id"])
         self.assertEqual("first durable memory", shown["memory"]["content"])
 
+    def test_commands_discover_dot_memory_project_from_parent_directory(self):
+        repo_root = self.root / "repo"
+        project_root = repo_root / ".memory"
+        memory_dir = project_root / "memories"
+        memory_dir.mkdir(parents=True)
+        (project_root / "memory.config.json").write_text(
+            json.dumps(
+                {
+                    "priority_thresholds": {
+                        "blocking_failure": 80,
+                        "warning_failure": 40,
+                    },
+                    "performance_budget_ms": {
+                        "p95_search": 200,
+                        "full_test_suite": 5000,
+                    },
+                }
+            ),
+            encoding="utf-8",
+        )
+        (memory_dir / "hongloumeng.json").write_text(
+            json.dumps(
+                {
+                    "id": "hongloumeng-context",
+                    "priority": 80,
+                    "content": "贾宝玉 lives in 荣国府 near 宁国府",
+                    "queries": ["贾宝玉 荣国府 宁国府"],
+                    "must_include": ["荣国府"],
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+
+        memory_cli.set_paths(repo_root)
+
+        self.assertEqual(project_root, memory_cli.ROOT)
+        self.assertEqual(
+            ["hongloumeng-context"],
+            [item["id"] for item in memory_cli.list_memories()["memories"]],
+        )
+        self.assertEqual(
+            ["hongloumeng-context"],
+            [item["id"] for item in memory_cli.search("贾宝玉 荣国府 宁国府")["matches"]],
+        )
+
     def test_check_conflicts_reports_existing_matches_for_candidate_queries(self):
         self.write_memory(
             "existing",

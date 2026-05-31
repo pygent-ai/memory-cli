@@ -1,0 +1,15 @@
+{
+  "name": "memory-cli-js",
+  "version": "0.1.0",
+  "description": "UT-driven agent memory CLI template for JavaScript",
+  "type": "module",
+  "bin": {
+    "memory-cli": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

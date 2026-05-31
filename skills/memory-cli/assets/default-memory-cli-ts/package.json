@@ -1,0 +1,20 @@
+{
+  "name": "memory-cli-ts",
+  "version": "0.1.0",
+  "description": "UT-driven agent memory CLI template for TypeScript",
+  "type": "module",
+  "bin": {
+    "memory-cli": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test dist/tests/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

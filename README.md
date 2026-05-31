@@ -18,7 +18,9 @@ skills/
     SKILL.md
     agents/openai.yaml
     references/
-    assets/default-memory-cli/
+    assets/default-memory-cli-py/
+    assets/default-memory-cli-js/
+    assets/default-memory-cli-ts/
 ```
 
 ## What This Skill Does
@@ -31,7 +33,7 @@ The `memory-cli` skill guides an agent to:
 - add new memories by adding tests,
 - optimize retrieval logic when correctness or performance degrades.
 
-The default template is intentionally minimal. It is a `uv` Python CLI project that uses JSON memory cases and simple keyword matching so the first version always works. Agents may later replace the retrieval implementation with indexing, SQLite FTS, vectors, caching, or a hybrid design as the memory test suite grows.
+The default templates are intentionally minimal. The `-py` template is a `uv` Python CLI project, the `-js` template is a Node.js JavaScript project, and the `-ts` template is a Node.js TypeScript project. All three use JSON memory cases and simple keyword matching so the first version always works. Agents may later replace the retrieval implementation with indexing, SQLite FTS, vectors, caching, or a hybrid design as the memory test suite grows.
 
 ## Quick Start For Agents
 
@@ -40,10 +42,12 @@ Install or copy the skill folder into a Codex skills directory, then ask Codex t
 The skill carries a default project template at:
 
 ```text
-skills/memory-cli/assets/default-memory-cli/
+skills/memory-cli/assets/default-memory-cli-py/
+skills/memory-cli/assets/default-memory-cli-js/
+skills/memory-cli/assets/default-memory-cli-ts/
 ```
 
-That template can be copied into a workspace and installed with `uv`:
+The Python template can be copied into a workspace and installed with `uv`:
 
 ```bash
 uv tool install -e .
@@ -65,3 +69,7 @@ memory-cli bench
 ```
 
 During template development, `uv run memory-cli ...` works without installing the command globally.
+
+For the JavaScript template, use `npm test` or `node src/cli.js ...` during development.
+
+For the TypeScript template, run `npm install` once, then use `npm test` or `npm run build` during development.

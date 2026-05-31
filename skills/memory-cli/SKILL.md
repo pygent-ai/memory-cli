@@ -31,27 +31,37 @@ Treat durable memory as tested retrieval behavior. A memory is valid only when r
 ## Workflow
 
 1. Locate an existing memory project in the workspace. Prefer directories named `memory-cli`, `.memory`, `memory`, or project documentation that points to a memory command.
-2. If no memory project exists, initialize one by copying `assets/default-memory-cli/` from this skill into an appropriate workspace directory, then run `uv tool install -e .` from that directory so the `memory-cli` command is available.
-3. Query memory before acting on tasks that may depend on durable context:
+2. If no memory project exists, choose a language template and copy it into an appropriate workspace directory:
+   - `assets/default-memory-cli-py/`: Python `uv` project.
+   - `assets/default-memory-cli-js/`: JavaScript Node.js project.
+   - `assets/default-memory-cli-ts/`: TypeScript Node.js project.
+   Prefer the user's requested language. If unspecified, prefer `assets/default-memory-cli-py/` for smallest setup.
+3. Install or run the copied template so the `memory-cli` command is available:
+   - Python: run `uv tool install -e .` from the copied project.
+   - JavaScript: run `npm link` from the copied project, or use `node src/cli.js ...` during development.
+   - TypeScript: run `npm install && npm run build && npm link`, or use `npm test` during development.
+4. Query memory before acting on tasks that may depend on durable context:
 
 ```bash
 memory-cli search "<keywords>"
 ```
 
-4. Add memory by designing candidate memory tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
-5. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, use `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
-6. After changing memory cases or retrieval code, run:
+5. Add memory by designing candidate memory tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
+6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, use `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
+7. After changing memory cases or retrieval code, run:
 
 ```bash
 memory-cli test
 memory-cli bench
 ```
 
-7. If correctness fails, fix the memory case or retrieval implementation. If performance exceeds the configured budget, optimize retrieval behind the same CLI contract.
+8. If correctness fails, fix the memory case or retrieval implementation. If performance exceeds the configured budget, optimize retrieval behind the same CLI contract.
 
 ## Memory Records
 
 Read `references/memory-test-contract.md` before adding, reviewing, migrating, or changing memory records. Use it for the JSON schema, review rules, conflict handling, and test passing rule.
+
+When extracting new memory from conversations, documents, project history, or external source material, read `references/memory-extraction-guide.md`. Use it to turn source material into answerable, testable memories with entities, aliases, time/place facts, relationships, state changes, and realistic natural-language queries.
 
 Retired memories stay on disk for audit history but must not appear in normal search results, conflict checks, tests, or benchmarks.
 
@@ -79,6 +89,9 @@ Do not delete or weaken high-priority memory tests to hide retrieval problems.
 
 ## Bundled Resources
 
-- `assets/default-memory-cli/`: minimal Python memory CLI template.
+- `assets/default-memory-cli-py/`: minimal Python memory CLI template.
+- `assets/default-memory-cli-js/`: minimal JavaScript memory CLI template.
+- `assets/default-memory-cli-ts/`: minimal TypeScript memory CLI template.
+- `references/memory-extraction-guide.md`: guidance for extracting answerable, index-like facts from source material.
 - `references/memory-test-contract.md`: detailed test-case schema and review rules.
 - `references/retrieval-optimization-guide.md`: guidance for choosing stronger retrieval implementations.
