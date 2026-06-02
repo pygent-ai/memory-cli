@@ -67,12 +67,18 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 
 - Before adding a memory, design candidate tests and run each candidate query against existing memory.
 - If a new memory conflicts with existing memory, ask the user how to resolve the conflict before changing tests.
-- If there is no conflict, merge or modify existing tests when that better preserves the intended memory than adding a duplicate case.
+- If there is no conflict, distill the candidate into the current retrieval implementation, or merge/modify existing tests when that better preserves the intended memory than adding a duplicate case.
 - Each memory should have at least two realistic queries when possible.
 - High-priority memories should have stricter `must_include` assertions.
 - Queries should include the way a future agent is likely to ask, not only exact wording from the original conversation.
 - A memory should be explicit and useful. Do not preserve raw conversation trivia unless it changes future behavior.
 - If two memories conflict, create a new higher-priority memory that explains the current rule and retire or lower the stale one.
+
+## Test Boundary
+
+Use retrieval unit tests as validation gates and migration references. Do not make `search`, `check-conflicts`, or normal retrieval depend on test assertions as the live data source.
+
+The implementation may generate or update runtime structures from test-backed memory records, such as JSON fields, code branches, indexes, databases, embeddings, or caches. Once generated, those runtime structures are the retrieval system; the tests remain the evidence that the behavior still holds.
 
 ## Passing Rule
 

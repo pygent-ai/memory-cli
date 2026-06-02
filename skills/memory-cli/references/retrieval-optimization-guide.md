@@ -18,3 +18,4 @@ Use this reference when `memory-cli bench` exceeds the configured budget or the 
 - Run all correctness tests before trusting a faster implementation.
 - Compare p95 latency before and after optimization.
 - Prefer understandable implementations until performance data proves the need for complexity.
+- Optimize by distilling test-backed memory behavior into better runtime structures, not by making tests part of live retrieval.

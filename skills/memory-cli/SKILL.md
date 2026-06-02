@@ -26,7 +26,9 @@ Keep this command surface stable. Improve retrieval internals without changing c
 
 ## Core Model
 
-Treat durable memory as tested retrieval behavior. A memory is valid only when realistic queries retrieve the expected content through the memory CLI.
+Treat durable memory as tested retrieval behavior. Retrieval unit tests are gates and regression contracts, not the runtime retrieval system.
+
+Build or update the retrieval system by distilling the facts and query intent expressed by the tests into the project's chosen implementation. That implementation may be JSON structure, code paths, if/else rules, indexes, caches, databases, vector stores, or another suitable design. The tests prove the behavior; they should not be the data source that `search` depends on at runtime.
 
 ## Workflow
 
@@ -46,8 +48,8 @@ Treat durable memory as tested retrieval behavior. A memory is valid only when r
 memory-cli search "<keywords>"
 ```
 
-5. Add memory by designing candidate memory tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
-6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, use `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
+5. Add memory by designing candidate retrieval tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
+6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, distill the candidate into the current retrieval implementation with `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
 7. After changing memory cases or retrieval code, run:
 
 ```bash
@@ -82,6 +84,8 @@ Respect the project's config. A typical config treats failed memories at or abov
 ## Retrieval Implementation
 
 Start with the simplest implementation that passes tests. It is acceptable for early memory projects to use JSON scans or hard-coded logic.
+
+Do not implement retrieval by reading unit-test assertions as the live search corpus. Use tests to drive and verify the implementation, then store or encode the resulting memory facts in the system's runtime structures.
 
 When the test suite grows or `bench` exceeds budget, read `references/retrieval-optimization-guide.md` and improve internals without changing the CLI output contract.
 
