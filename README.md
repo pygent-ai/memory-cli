@@ -6,7 +6,7 @@
 
 This repository provides an agent-oriented memory system skill. It does not ask an agent to keep a static note file, and it does not prescribe one fixed database. Instead, it teaches an agent to build, use, test, and continuously improve a long-term memory system inside its own workspace.
 
-The core idea is: memory is not "stored text"; it is "behavior that can be retrieved correctly later." An important memory enters the system with retrieval tests. Only when realistic queries can find it again does it count as truly remembered.
+The core idea is: memory is not "stored text"; it is "behavior that can be retrieved correctly later." An important memory enters the system with retrieval tests. Only when keywords and key phrases can find it again does it count as truly remembered.
 
 ## What This Project Solves
 
@@ -83,7 +83,7 @@ A healthy agent memory system follows a loop:
 3. **Check conflicts**: Run candidate queries against existing memory, and ask the user or maintainer to decide when facts contradict each other.
 4. **Add**: Add the memory after conflict checks pass, or merge it into a better existing memory.
 5. **Retrieve**: Query relevant memories before starting work so durable context returns to the task.
-6. **Regress**: Run tests to confirm important memories can still be found by future natural-language queries.
+6. **Regress**: Run tests to confirm important memories can still be found by future keyword and key-phrase queries.
 7. **Optimize**: Upgrade the internal implementation when test quality, retrieval speed, or recall begins to degrade.
 
 The point is not to "save more." The point is for each memory to participate in future behavior. As the memory system grows, the test suite grows with it. As the test suite becomes richer, the agent can improve retrieval with confidence.
@@ -94,7 +94,7 @@ All templates are built around the same command surface:
 
 ```bash
 memory-cli init [--path <dir>]
-memory-cli search <query>
+memory-cli search <keyword-or-key-phrase> [keyword-or-key-phrase...]
 memory-cli check-conflicts --file <candidate.json>
 memory-cli add --file <memory.json> [--force]
 memory-cli list
@@ -116,7 +116,7 @@ A memory contains at least these fields:
   "id": "mem-stable-id",
   "priority": 80,
   "content": "The durable memory text.",
-  "queries": ["query one", "query two"],
+  "queries": ["keyword one", "key phrase two"],
   "must_include": ["required phrase"]
 }
 ```
@@ -154,7 +154,7 @@ A typical workflow looks like this:
 uv tool install -e .
 
 # Retrieve relevant durable context before starting work.
-memory-cli search "memory skill"
+memory-cli search "memory skill" "retrieval tests"
 
 # Check whether a candidate memory conflicts with existing memory.
 memory-cli check-conflicts --file candidate.json

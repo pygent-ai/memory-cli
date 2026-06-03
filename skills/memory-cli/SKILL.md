@@ -11,7 +11,7 @@ Read this command set before using or changing a memory project:
 
 ```bash
 memory-cli init [--path <dir>]
-memory-cli search <query>
+memory-cli search <keyword-or-key-phrase> [keyword-or-key-phrase...]
 memory-cli check-conflicts --file <candidate.json>
 memory-cli add --file <memory.json> [--force]
 memory-cli list
@@ -28,7 +28,20 @@ Keep this command surface stable. Improve retrieval internals without changing c
 
 Treat durable memory as tested retrieval behavior. Retrieval unit tests are gates and regression contracts, not the runtime retrieval system.
 
-Build or update the retrieval system by distilling the facts and query intent expressed by the tests into the project's chosen implementation. That implementation may be JSON structure, code paths, if/else rules, indexes, caches, databases, vector stores, or another suitable design. The tests prove the behavior; they should not be the data source that `search` depends on at runtime.
+Build or update the retrieval system by distilling the facts and keyword/key-phrase intent expressed by the tests into the project's chosen implementation. That implementation may be JSON structure, code paths, if/else rules, indexes, caches, databases, vector stores, or another suitable design. The tests prove the behavior; they should not be the data source that `search` depends on at runtime.
+
+## Runtime / Test Boundary
+
+Keep runtime retrieval resources separate from retrieval unit-test resources. A portable `memory-cli search` package must run with only runtime code, runtime memory data, config, and optional generated runtime indexes. It must not read from `tests/`, test fixtures, test-case files, benchmark fixtures, unit-test assertions, or any other test-only resource.
+
+Use a layout like:
+
+- `src/` or `memory_cli/`: CLI and retrieval implementation.
+- `memories/`: durable runtime memory records used by `search`, `list`, `show`, conflict checks, and indexes.
+- `indexes/` or `.memory-index/`: optional generated runtime retrieval artifacts.
+- `tests/`, `test-cases/`, or `fixtures/`: retrieval unit-test queries and assertions.
+
+`search` may read only runtime memory records and runtime indexes. `test` and `bench` may read test cases and then call the public CLI/search path. If a candidate file contains both memory content and retrieval tests, `add` should distill or split it into runtime memory data and test-only assertions before relying on it.
 
 ## Workflow
 
@@ -45,8 +58,10 @@ Build or update the retrieval system by distilling the facts and query intent ex
 4. Query memory before acting on tasks that may depend on durable context:
 
 ```bash
-memory-cli search "<keywords>"
+memory-cli search "<keyword-or-key-phrase>" ["another-keyword-or-key-phrase"...]
 ```
+
+Use keyword and key-phrase queries for retrieval unit tests and normal searches. Multiple keyword arguments may match the same memory. When `search` receives multiple keyword arguments, it returns one result group per input keyword in the same order.
 
 5. Add memory by designing candidate retrieval tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
 6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, distill the candidate into the current retrieval implementation with `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
@@ -63,7 +78,7 @@ memory-cli bench
 
 Read `references/memory-test-contract.md` before adding, reviewing, migrating, or changing memory records. Use it for the JSON schema, review rules, conflict handling, and test passing rule.
 
-When extracting new memory from conversations, documents, project history, or external source material, read `references/memory-extraction-guide.md`. Use it to turn source material into answerable, testable memories with entities, aliases, time/place facts, relationships, state changes, and realistic natural-language queries.
+When extracting new memory from conversations, documents, project history, or external source material, read `references/memory-extraction-guide.md`. Use it to turn source material into answerable, testable memories with entities, aliases, time/place facts, relationships, state changes, and keyword/key-phrase retrieval tests.
 
 Retired memories stay on disk for audit history but must not appear in normal search results, conflict checks, tests, or benchmarks.
 
@@ -85,7 +100,7 @@ Respect the project's config. A typical config treats failed memories at or abov
 
 Start with the simplest implementation that passes tests. It is acceptable for early memory projects to use JSON scans or hard-coded logic.
 
-Do not implement retrieval by reading unit-test assertions as the live search corpus. Use tests to drive and verify the implementation, then store or encode the resulting memory facts in the system's runtime structures.
+Do not implement retrieval by reading unit-test assertions as the live search corpus. Treat fields such as `queries` and `must_include` as test metadata unless the project explicitly defines separate runtime aliases or keywords. In memory records, `queries` should be keyword or key-phrase test inputs, not full prompts. Use tests to drive and verify the implementation, then store or encode the resulting memory facts in the system's runtime structures.
 
 When the test suite grows or `bench` exceeds budget, read `references/retrieval-optimization-guide.md` and improve internals without changing the CLI output contract.
 

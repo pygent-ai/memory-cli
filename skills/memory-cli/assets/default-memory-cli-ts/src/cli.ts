@@ -12,6 +12,8 @@ export type MemoryRecord = {
   must_include: string[];
   status?: string;
   tags?: string[];
+  aliases?: string[];
+  keywords?: string[];
   source?: string;
   created_at?: string;
   updated_at?: string;
@@ -27,6 +29,15 @@ export type SearchMatch = {
   content: string;
   tags: string[];
   source?: string;
+};
+
+export type SearchResult = {
+  query: string;
+  matches: SearchMatch[];
+};
+
+export type MultiSearchResult = {
+  queries: SearchResult[];
 };
 
 export function isMemoryProject(projectRoot: string): boolean {
@@ -162,8 +173,9 @@ export function scoreMemory(memory: MemoryRecord, query: string): number {
   if (!queryTokens.length) return 0;
   const fields: Array<[string, number]> = [
     [memory.content ?? "", 3],
-    [(memory.queries ?? []).join(" "), 4],
     [(memory.tags ?? []).join(" "), 2],
+    [(memory.aliases ?? []).join(" "), 2],
+    [(memory.keywords ?? []).join(" "), 2],
     [memory.id ?? "", 1]
   ];
   let score = 0;
@@ -179,7 +191,7 @@ export function scoreMemory(memory: MemoryRecord, query: string): number {
   return score;
 }
 
-export function search(query: string): { query: string; matches: SearchMatch[] } {
+export function search(query: string): SearchResult {
   const matches = activeMemories()
     .map((memory) => ({ memory, score: scoreMemory(memory, query) }))
     .filter((item) => item.score > 0)
@@ -193,6 +205,10 @@ export function search(query: string): { query: string; matches: SearchMatch[] }
     }));
   matches.sort((a, b) => (b.priority - a.priority) || (b.score - a.score));
   return { query, matches };
+}
+
+export function searchMany(queries: string[]): MultiSearchResult {
+  return { queries: queries.map((query) => search(query)) };
 }
 
 export function checkConflicts(candidate: MemoryRecord) {
@@ -306,7 +322,7 @@ export function main(argv = process.argv.slice(2)): number {
     return 1;
   }
   if (command === "init") result = initProject(valueAfter(args, "--path") ?? ".");
-  else if (command === "search") result = search(args.join(" "));
+  else if (command === "search") result = args.length === 1 ? search(args[0]) : searchMany(args);
   else if (command === "check-conflicts") result = checkConflicts(readJson<MemoryRecord>(requiredValue(args, "--file")));
   else if (command === "add") {
     result = addMemory(readJson<MemoryRecord>(requiredValue(args, "--file")), args.includes("--force"));

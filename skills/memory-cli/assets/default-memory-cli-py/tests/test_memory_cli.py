@@ -33,12 +33,15 @@ class MemoryCliBehaviorTest(unittest.TestCase):
             ),
             encoding="utf-8",
         )
+        self.old_root = memory_cli.ROOT
         self.old_memory_dir = memory_cli.MEMORY_DIR
         self.old_config_path = memory_cli.CONFIG_PATH
+        memory_cli.ROOT = self.root
         memory_cli.MEMORY_DIR = self.memory_dir
         memory_cli.CONFIG_PATH = self.config_path
 
     def tearDown(self):
+        memory_cli.ROOT = self.old_root
         memory_cli.MEMORY_DIR = self.old_memory_dir
         memory_cli.CONFIG_PATH = self.old_config_path
         self.tmp.cleanup()
@@ -66,6 +69,54 @@ class MemoryCliBehaviorTest(unittest.TestCase):
 
         self.assertEqual(["mem-2", "mem-1", "mem-0"], [m["id"] for m in result["matches"]])
 
+    def test_search_many_returns_matches_grouped_by_input_keyword_order(self):
+        self.write_memory(
+            "shared",
+            id="mem-shared",
+            priority=70,
+            content="durable memory about local editors and shell setup",
+            queries=["editors", "shell setup"],
+            must_include=["shell setup"],
+            keywords=["editors", "shell setup"],
+        )
+        self.write_memory(
+            "shell",
+            id="mem-shell",
+            priority=90,
+            content="shell setup prefers powershell commands",
+            queries=["shell setup"],
+            must_include=["powershell"],
+            keywords=["shell setup"],
+        )
+
+        result = memory_cli.search_many(["editors", "shell setup"])
+
+        self.assertEqual(["editors", "shell setup"], [item["query"] for item in result["queries"]])
+        self.assertEqual(["mem-shared"], [item["id"] for item in result["queries"][0]["matches"]])
+        self.assertEqual(
+            ["mem-shell", "mem-shared"],
+            [item["id"] for item in result["queries"][1]["matches"]],
+        )
+
+    def test_main_search_accepts_multiple_keyword_arguments(self):
+        self.write_memory(
+            "shared",
+            id="mem-shared",
+            priority=70,
+            content="durable memory about local editors and shell setup",
+            queries=["editors", "shell setup"],
+            must_include=["shell setup"],
+            keywords=["editors", "shell setup"],
+        )
+        output = io.StringIO()
+
+        with contextlib.redirect_stdout(output):
+            code = memory_cli.main(["search", "editors", "shell setup"])
+
+        result = json.loads(output.getvalue())
+        self.assertEqual(0, code)
+        self.assertEqual(["editors", "shell setup"], [item["query"] for item in result["queries"]])
+
     def test_search_orders_results_by_priority_before_score(self):
         self.write_memory(
             "low-score-high-priority",
@@ -87,6 +138,20 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         result = memory_cli.search("alpha alpha alpha")
 
         self.assertEqual("high-priority", result["matches"][0]["id"])
+
+    def test_search_does_not_score_test_queries_as_runtime_content(self):
+        self.write_memory(
+            "runtime-memory",
+            id="runtime-memory",
+            priority=90,
+            content="durable runtime content",
+            queries=["verification-only phrase"],
+            must_include=["runtime content"],
+        )
+
+        result = memory_cli.search("verification-only phrase")
+
+        self.assertEqual([], result["matches"])
 
     def test_memory_test_passes_when_expected_content_appears_anywhere_in_results(self):
         self.write_memory(

@@ -34,6 +34,61 @@ test("search returns all matches ordered by priority before score", () => withPr
   assert.deepEqual(memoryCli.search("alpha alpha alpha").matches.map((item) => item.id), ["high", "low"]);
 }));
 
+test("searchMany returns matches grouped by input keyword order", () => withProject(() => {
+  writeMemory("shared", {
+    id: "shared",
+    priority: 70,
+    content: "durable memory about local editors and shell setup",
+    queries: ["editors", "shell setup"],
+    must_include: ["shell setup"],
+    keywords: ["editors", "shell setup"]
+  });
+  writeMemory("shell", {
+    id: "shell",
+    priority: 90,
+    content: "shell setup prefers powershell commands",
+    queries: ["shell setup"],
+    must_include: ["powershell"],
+    keywords: ["shell setup"]
+  });
+
+  const result = memoryCli.searchMany(["editors", "shell setup"]);
+
+  assert.deepEqual(result.queries.map((item) => item.query), ["editors", "shell setup"]);
+  assert.deepEqual(result.queries[0].matches.map((item) => item.id), ["shared"]);
+  assert.deepEqual(result.queries[1].matches.map((item) => item.id), ["shell", "shared"]);
+}));
+
+test("main search accepts multiple keyword arguments", () => withProject(() => {
+  writeMemory("shared", {
+    id: "shared",
+    priority: 70,
+    content: "durable memory about local editors and shell setup",
+    queries: ["editors", "shell setup"],
+    must_include: ["shell setup"],
+    keywords: ["editors", "shell setup"]
+  });
+  const lines: string[] = [];
+  const originalLog = console.log;
+  console.log = (line: string) => {
+    lines.push(line);
+  };
+  try {
+    assert.equal(memoryCli.main(["search", "editors", "shell setup"]), 0);
+  } finally {
+    console.log = originalLog;
+  }
+
+  const result = JSON.parse(lines[0]);
+  assert.deepEqual(result.queries.map((item: { query: string }) => item.query), ["editors", "shell setup"]);
+}));
+
+test("search does not score test queries as runtime content", () => withProject(() => {
+  writeMemory("runtime-memory", { id: "runtime-memory", priority: 90, content: "durable runtime content", queries: ["verification-only phrase"], must_include: ["runtime content"] });
+
+  assert.deepEqual(memoryCli.search("verification-only phrase").matches, []);
+}));
+
 test("memory tests pass when expected content appears anywhere in results", () => withProject(() => {
   writeMemory("related", { id: "related", priority: 95, content: "python python related implementation note", queries: ["python memory"], must_include: ["implementation note"] });
   writeMemory("expected", { id: "expected", priority: 60, content: "remember exact expected content for python memory", queries: ["python memory"], must_include: ["exact expected content"] });

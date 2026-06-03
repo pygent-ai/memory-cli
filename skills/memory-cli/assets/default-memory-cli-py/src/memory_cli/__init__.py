@@ -8,6 +8,7 @@ from .cli import (
     retire_memory,
     run_tests,
     search,
+    search_many,
     show_memory,
     update_memory,
 )
@@ -22,6 +23,7 @@ __all__ = [
     "retire_memory",
     "run_tests",
     "search",
+    "search_many",
     "show_memory",
     "update_memory",
 ]

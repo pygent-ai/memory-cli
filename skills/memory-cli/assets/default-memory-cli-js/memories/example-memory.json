@@ -4,8 +4,13 @@
   "content": "The memory system treats durable memory as retrieval unit tests. Adding memory means adding test cases, and retrieval should happen through a stable CLI contract.",
   "queries": [
     "memory system unit tests",
-    "how should agent memory be stored",
+    "agent memory retrieval tests",
     "UT driven memory retrieval"
+  ],
+  "keywords": [
+    "memory system",
+    "retrieval tests",
+    "CLI contract"
   ],
   "must_include": [
     "retrieval unit tests",

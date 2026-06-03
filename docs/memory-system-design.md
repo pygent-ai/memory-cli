@@ -8,7 +8,7 @@ The central principle is:
 
 > Treat every durable memory as a retrieval test.
 
-If something is important enough to remember, it should be important enough to verify. Adding memory means adding one or more tests that prove the memory can be found later from realistic keywords or prompts.
+If something is important enough to remember, it should be important enough to verify. Adding memory means adding one or more tests that prove the memory can be found later from keywords and key phrases.
 
 ## Design Principles
 
@@ -19,7 +19,7 @@ A memory is useful only if the agent can retrieve it at the right time. The stor
 Each memory should define:
 
 - the remembered content,
-- the queries that should retrieve it,
+- the keyword or key-phrase queries that should retrieve it,
 - the priority of the memory,
 - the expected fields or phrases that must appear in search results,
 - optional tags, source, and timestamps.
@@ -56,7 +56,7 @@ The memory system should expose stable commands:
 
 ```bash
 memory-cli init [--path <dir>]
-memory-cli search <query>
+memory-cli search <keyword-or-key-phrase> [keyword-or-key-phrase...]
 memory-cli check-conflicts --file <candidate.json>
 memory-cli add --file <memory.json> [--force]
 memory-cli list
@@ -69,7 +69,7 @@ memory-cli bench
 
 The implementation behind those commands may change. The agent's workflow should depend on the command contract, not on internal files.
 
-`memory-cli search <query>` should return the complete matching result list. It should not truncate results. The result list should be sorted by priority first, with retrieval score used only as a tie-breaker.
+`memory-cli search <keyword-or-key-phrase>` should return the complete matching result list. It should not truncate results. The result list should be sorted by priority first, with retrieval score used only as a tie-breaker. When multiple keyword/key-phrase inputs are provided, `search` should return one result group per input in the same order.
 
 ### 5. Priority Has Operational Meaning
 

@@ -134,8 +134,9 @@ export function scoreMemory(memory, query) {
   if (!queryTokens.length) return 0;
   const fields = [
     [memory.content ?? "", 3],
-    [(memory.queries ?? []).join(" "), 4],
     [(memory.tags ?? []).join(" "), 2],
+    [(memory.aliases ?? []).join(" "), 2],
+    [(memory.keywords ?? []).join(" "), 2],
     [memory.id ?? "", 1]
   ];
   let score = 0;
@@ -165,6 +166,10 @@ export function search(query) {
     }));
   matches.sort((a, b) => (b.priority - a.priority) || (b.score - a.score));
   return { query, matches };
+}
+
+export function searchMany(queries) {
+  return { queries: queries.map((query) => search(query)) };
 }
 
 export function checkConflicts(candidate) {
@@ -277,7 +282,7 @@ export function main(argv = process.argv.slice(2)) {
     return 1;
   }
   if (command === "init") result = initProject(valueAfter(args, "--path") ?? ".");
-  else if (command === "search") result = search(args.join(" "));
+  else if (command === "search") result = args.length === 1 ? search(args[0]) : searchMany(args);
   else if (command === "check-conflicts") result = checkConflicts(readJson(requiredValue(args, "--file")));
   else if (command === "add") {
     result = addMemory(readJson(requiredValue(args, "--file")), args.includes("--force"));

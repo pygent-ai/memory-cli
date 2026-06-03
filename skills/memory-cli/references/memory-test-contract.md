@@ -5,7 +5,7 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 ## Command Semantics
 
 - `init`: create `memories/` and `memory.config.json` for a memory project.
-- `search`: retrieve the complete active matching memory list, sorted by priority.
+- `search`: retrieve complete active matching memories for one or more keyword/key-phrase inputs. A single input returns one ordered match list. Multiple inputs return one ordered match list per input, preserving input order.
 - `check-conflicts`: run candidate memory queries against active memory before adding.
 - `add`: add a memory JSON file; refuse conflicts unless `--force` is explicitly used.
 - `list`: show IDs, priorities, statuses, tags, and sources for all memories, including retired ones.
@@ -22,7 +22,7 @@ Use this reference when adding, reviewing, or migrating memory test cases.
   "id": "mem-stable-id",
   "priority": 80,
   "content": "The durable memory text.",
-  "queries": ["query one", "query two"],
+  "queries": ["keyword one", "key phrase two"],
   "must_include": ["required phrase"]
 }
 ```
@@ -49,7 +49,7 @@ Use this reference when adding, reviewing, or migrating memory test cases.
   "content": "The user wants agent memory to be represented as retrieval unit tests. Adding memory means adding tests, and optimization should preserve the CLI contract.",
   "queries": [
     "memory system unit tests",
-    "how should agent memory be stored",
+    "agent memory retrieval tests",
     "test driven memory retrieval"
   ],
   "must_include": [
@@ -68,9 +68,10 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 - Before adding a memory, design candidate tests and run each candidate query against existing memory.
 - If a new memory conflicts with existing memory, ask the user how to resolve the conflict before changing tests.
 - If there is no conflict, distill the candidate into the current retrieval implementation, or merge/modify existing tests when that better preserves the intended memory than adding a duplicate case.
-- Each memory should have at least two realistic queries when possible.
+- Each memory should have at least two keyword or key-phrase queries when possible.
 - High-priority memories should have stricter `must_include` assertions.
-- Queries should include the way a future agent is likely to ask, not only exact wording from the original conversation.
+- Queries should capture exact names, aliases, categories, relationships, and concise key phrases that should retrieve the memory.
+- Multiple queries may intentionally retrieve the same memory. Each query is evaluated independently.
 - A memory should be explicit and useful. Do not preserve raw conversation trivia unless it changes future behavior.
 - If two memories conflict, create a new higher-priority memory that explains the current rule and retire or lower the stale one.
 
@@ -78,11 +79,15 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 
 Use retrieval unit tests as validation gates and migration references. Do not make `search`, `check-conflicts`, or normal retrieval depend on test assertions as the live data source.
 
-The implementation may generate or update runtime structures from test-backed memory records, such as JSON fields, code branches, indexes, databases, embeddings, or caches. Once generated, those runtime structures are the retrieval system; the tests remain the evidence that the behavior still holds.
+Keep test-only resources outside the runtime search package. `search` must be able to run without `tests/`, `test-cases/`, fixtures, benchmark data, or unit-test assertions. It may read only runtime memory records, runtime config, and generated runtime retrieval artifacts such as indexes, databases, embeddings, or caches.
+
+The implementation may generate or update runtime structures from test-backed memory records, such as JSON fields, code branches, indexes, databases, embeddings, or caches. Once generated, those runtime structures are the retrieval system; the tests remain the evidence that the behavior still holds. Treat `queries` and `must_include` as test metadata unless the project has explicitly copied selected terms into a runtime field such as `aliases`, `keywords`, or indexed content.
 
 ## Passing Rule
 
-For each query, the search result is a full ordered list of active memories. The expected memory may appear anywhere in that list. A test passes when the expected memory is present and the strings in `must_include` appear in that matched result's content.
+For each keyword or key phrase in `queries`, the search result is a full ordered list of active memories. The expected memory may appear anywhere in that list. A test passes when the expected memory is present and the strings in `must_include` appear in that matched result's content.
+
+When `search` receives multiple keyword/key-phrase inputs, it returns one result group per input in the same order. The same memory may appear in multiple groups when multiple inputs match it.
 
 Do not require exact content equality. Do not require the expected memory to be the top result. Do not truncate the result list before evaluating the test.
 

@@ -221,8 +221,9 @@ def score_memory(memory, query):
 
     fields = [
         ("content", memory.get("content", ""), 3),
-        ("queries", " ".join(memory.get("queries", [])), 4),
         ("tags", " ".join(memory.get("tags", [])), 2),
+        ("aliases", " ".join(memory.get("aliases", [])), 2),
+        ("keywords", " ".join(memory.get("keywords", [])), 2),
         ("id", memory.get("id", ""), 1),
     ]
 
@@ -260,6 +261,10 @@ def search(query):
 
     matches.sort(key=lambda item: (item["priority"], item["score"]), reverse=True)
     return {"query": query, "matches": matches}
+
+
+def search_many(queries):
+    return {"queries": [search(query) for query in queries]}
 
 
 def run_tests():
@@ -344,7 +349,7 @@ def main(argv=None):
     init_parser.add_argument("--path", default=".")
 
     search_parser = sub.add_parser("search")
-    search_parser.add_argument("query")
+    search_parser.add_argument("query", nargs="+")
 
     check_parser = sub.add_parser("check-conflicts")
     check_parser.add_argument("--file", required=True)
@@ -377,7 +382,10 @@ def main(argv=None):
 
     handlers = {
         "init": lambda: (init_project(args.path), 0),
-        "search": lambda: (search(args.query), 0),
+        "search": lambda: (
+            search(args.query[0]) if len(args.query) == 1 else search_many(args.query),
+            0,
+        ),
         "check-conflicts": lambda: (check_conflicts(read_json_file(args.file)), 0),
         "add": lambda: _add_command(args),
         "list": lambda: (list_memories(), 0),

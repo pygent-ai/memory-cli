@@ -33,7 +33,7 @@
   <path d="M112 236h26M125 223v26" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
   <text x="174" y="232" class="label">Memory records</text>
   <text x="174" y="264" class="body">Content, priority, source,</text>
-  <text x="174" y="292" class="body">and realistic query cases</text>
+  <text x="174" y="292" class="body">and keyword query cases</text>
   <rect x="105" y="322" width="220" height="38" rx="10" class="chip"/>
   <text x="125" y="347" class="mono">memories/*.json</text>
 
@@ -42,7 +42,7 @@
   <path d="M498 236l9 9 17-21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="559" y="232" class="label">Retrieval tests</text>
   <text x="559" y="264" class="body">Memories must be found</text>
-  <text x="559" y="292" class="body">by future natural queries</text>
+  <text x="559" y="292" class="body">by keyword phrases</text>
   <rect x="490" y="322" width="220" height="38" rx="10" class="chip"/>
   <text x="514" y="347" class="mono">memory-cli test</text>
 
