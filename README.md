@@ -171,3 +171,14 @@ python -m unittest discover -s tests
 ```
 
 When changing template paths, README template descriptions, `package.json` bin configuration, or test scripts, update tests and documentation together.
+
+## LongMemEval Experiment Snapshot
+
+The current LongMemEval oracle snapshot is documented in
+`experiments/longmemeval/results/2026-06-05-current/RESULTS.md`.
+
+It combines the completed first-10 run with the stopped remaining-case run:
+291 of 500 oracle cases completed with metrics, 10 transient run failures were
+excluded for later rerun, and 199 cases were not completed. On completed cases,
+recall@5 is 0.9895, NDCG@5 is 0.9917, strict substring answer accuracy is
+0.5876, and answer accuracy after manual semantic review is 0.8582.

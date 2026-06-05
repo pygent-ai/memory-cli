@@ -1,0 +1,154 @@
+{
+  "snapshot_date": "2026-06-05",
+  "source_runs": {
+    "first10": "experiments\\longmemeval\\runs\\real-first10-20260604-153551",
+    "remaining490_stopped": "experiments\\longmemeval\\runs\\real-remaining490-20260604-remaining"
+  },
+  "oracle_total_cases": 500,
+  "run_progress": {
+    "first10": {
+      "started": 10,
+      "done": 10,
+      "failures": 0
+    },
+    "remaining490_stopped": {
+      "started": 312,
+      "done": 281,
+      "failures": 0,
+      "batch_total": 490,
+      "metrics": 281,
+      "interrupted_or_in_progress_at_stop": 21,
+      "not_started": 178,
+      "excluded_for_rerun": {
+        "count": 10,
+        "reason": "Excluded from this results snapshot; user identified these run failures as transient network/timeout issues to rerun later.",
+        "case_ids": [
+          "46a3abf7",
+          "80ec1f4f",
+          "d23cf73b",
+          "2ce6a0f2",
+          "00ca467f",
+          "60472f9c",
+          "a9f6b44c",
+          "e3038f8c",
+          "81507db6",
+          "a2f3aa27"
+        ]
+      }
+    },
+    "combined": {
+      "completed_with_metrics": 291,
+      "failed": 0,
+      "not_completed": 209,
+      "excluded_for_rerun": 10,
+      "note": "The 10 excluded cases are not counted as completed or failed results in this snapshot and should be rerun later."
+    }
+  },
+  "overall": {
+    "case_count": 291,
+    "recall_at_1": 0.6701,
+    "recall_at_5": 0.9895,
+    "recall_at_10": 0.99,
+    "ndcg_at_5": 0.9917,
+    "ndcg_at_10": 0.9917,
+    "answer_substring_match": 0.5876,
+    "answer_correct": 0.8582,
+    "search_latency_ms_total": 443.7209,
+    "search_latency_ms_max": 119.8651,
+    "correct_count": 242,
+    "strict_correct_count": 171,
+    "manual_correction_count": 80
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "case_count": 76,
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.9934,
+      "recall_at_10": 0.9934,
+      "ndcg_at_5": 0.9949,
+      "ndcg_at_10": 0.9949,
+      "answer_substring_match": 0.7237,
+      "answer_correct": 0.9342,
+      "search_latency_ms_total": 312.4759,
+      "search_latency_ms_max": 92.9682,
+      "correct_count": 71,
+      "strict_correct_count": 55
+    },
+    "multi-session": {
+      "case_count": 39,
+      "recall_at_1": 0.3496,
+      "recall_at_5": 0.9726,
+      "recall_at_10": 0.9726,
+      "ndcg_at_5": 0.9793,
+      "ndcg_at_10": 0.9793,
+      "answer_substring_match": 0.6154,
+      "answer_correct": 0.8974,
+      "search_latency_ms_total": 482.6595,
+      "search_latency_ms_max": 96.1771,
+      "correct_count": 35,
+      "strict_correct_count": 24
+    },
+    "single-session-assistant": {
+      "case_count": 51,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "answer_substring_match": 0.3725,
+      "answer_correct": 0.5686,
+      "search_latency_ms_total": 569.1029,
+      "search_latency_ms_max": 157.4498,
+      "correct_count": 29,
+      "strict_correct_count": 19
+    },
+    "single-session-preference": {
+      "case_count": 30,
+      "recall_at_1": 0.9667,
+      "recall_at_5": 0.9667,
+      "recall_at_10": 0.9667,
+      "ndcg_at_5": 0.9667,
+      "ndcg_at_10": 0.9667,
+      "answer_substring_match": 0.0,
+      "answer_correct": 0.8333,
+      "search_latency_ms_total": 432.5273,
+      "search_latency_ms_max": 93.991,
+      "correct_count": 25,
+      "strict_correct_count": 0
+    },
+    "single-session-user": {
+      "case_count": 35,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "answer_substring_match": 0.8286,
+      "answer_correct": 0.9714,
+      "search_latency_ms_total": 458.549,
+      "search_latency_ms_max": 148.8636,
+      "correct_count": 34,
+      "strict_correct_count": 29
+    },
+    "temporal-reasoning": {
+      "case_count": 60,
+      "recall_at_1": 0.4728,
+      "recall_at_5": 0.9917,
+      "recall_at_10": 0.9944,
+      "ndcg_at_5": 0.9961,
+      "ndcg_at_10": 0.9961,
+      "answer_substring_match": 0.7333,
+      "answer_correct": 0.9412,
+      "search_latency_ms_total": 475.0269,
+      "search_latency_ms_max": 133.4059,
+      "correct_count": 48,
+      "strict_correct_count": 44
+    }
+  },
+  "result_scope": {
+    "completed_cases_included": 291,
+    "excluded_for_rerun": 10,
+    "pending_or_not_completed": 199,
+    "failure_cases_counted_in_metrics": 0
+  }
+}
