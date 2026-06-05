@@ -4,10 +4,10 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 
 ## Command Semantics
 
-- `init`: create `memories/` and `memory.config.json` for a memory project.
+- `init`: create `memories/`, `test-cases/`, and `memory.config.json` for a memory project.
 - `search`: retrieve complete active matching memories for one or more keyword/key-phrase inputs. A single input returns one ordered match list. Multiple inputs return one ordered match list per input, preserving input order.
 - `check-conflicts`: run candidate memory queries against active memory before adding.
-- `add`: add a memory JSON file; refuse conflicts unless `--force` is explicitly used.
+- `add`: add a candidate memory JSON file; refuse conflicts unless `--force` is explicitly used, then split runtime memory fields into `memories/` and retrieval assertions into `test-cases/`.
 - `list`: show IDs, priorities, statuses, tags, and sources for all memories, including retired ones.
 - `show`: print the full memory record for one ID.
 - `update`: merge fields from an updates JSON file into one memory.
@@ -15,7 +15,7 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 - `test`: run all active retrieval unit tests.
 - `bench`: measure active query and suite latency.
 
-## Required Fields
+## Candidate Required Fields
 
 ```json
 {
@@ -39,6 +39,33 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 }
 ```
 
+## Runtime Memory Fields
+
+After `add`, runtime memory files under `memories/` should not contain `queries` or `must_include`. They contain the durable searchable fact and runtime retrieval terms:
+
+```json
+{
+  "id": "mem-stable-id",
+  "priority": 80,
+  "content": "The durable memory text.",
+  "keywords": ["keyword one", "key phrase two"],
+  "aliases": ["alternate name"]
+}
+```
+
+## Test Case Fields
+
+Retrieval assertions live under `test-cases/`:
+
+```json
+{
+  "memory_id": "mem-stable-id",
+  "priority": 80,
+  "queries": ["keyword one", "key phrase two"],
+  "must_include": ["required phrase"]
+}
+```
+
 ## Example
 
 ```json
@@ -47,6 +74,11 @@ Use this reference when adding, reviewing, or migrating memory test cases.
   "priority": 90,
   "status": "active",
   "content": "The user wants agent memory to be represented as retrieval unit tests. Adding memory means adding tests, and optimization should preserve the CLI contract.",
+  "keywords": [
+    "memory system",
+    "retrieval tests",
+    "CLI contract"
+  ],
   "queries": [
     "memory system unit tests",
     "agent memory retrieval tests",
@@ -79,9 +111,9 @@ Use this reference when adding, reviewing, or migrating memory test cases.
 
 Use retrieval unit tests as validation gates and migration references. Do not make `search`, `check-conflicts`, or normal retrieval depend on test assertions as the live data source.
 
-Keep test-only resources outside the runtime search package. `search` must be able to run without `tests/`, `test-cases/`, fixtures, benchmark data, or unit-test assertions. It may read only runtime memory records, runtime config, and generated runtime retrieval artifacts such as indexes, databases, embeddings, or caches.
+Keep test-only resources outside the runtime search path. `search` must be able to run without `tests/`, `test-cases/`, fixtures, benchmark data, or unit-test assertions. It may read only runtime memory records, runtime config, and generated runtime retrieval artifacts such as indexes, databases, embeddings, or caches.
 
-The implementation may generate or update runtime structures from test-backed memory records, such as JSON fields, code branches, indexes, databases, embeddings, or caches. Once generated, those runtime structures are the retrieval system; the tests remain the evidence that the behavior still holds. Treat `queries` and `must_include` as test metadata unless the project has explicitly copied selected terms into a runtime field such as `aliases`, `keywords`, or indexed content.
+The implementation may generate or update runtime structures from test-backed candidate files, such as JSON fields, code branches, indexes, databases, embeddings, or caches. Once generated, those runtime structures are the retrieval system; the tests remain the evidence that the behavior still holds. Treat `queries` and `must_include` as test metadata unless the project has explicitly copied selected terms into a runtime field such as `aliases`, `keywords`, or indexed content.
 
 ## Passing Rule
 

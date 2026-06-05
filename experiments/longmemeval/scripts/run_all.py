@@ -2,12 +2,15 @@ import argparse
 import json
 import shutil
 import subprocess
-import sys
 from datetime import datetime
 from pathlib import Path
 
-from run_case import ROOT, run_case
-from summarize_results import summarize
+try:
+    from .run_case import ROOT, run_case
+    from .summarize_results import summarize
+except ImportError:
+    from run_case import ROOT, run_case
+    from summarize_results import summarize
 
 
 def read_json(path):
@@ -20,6 +23,7 @@ def copy_skill_snapshot(run_dir):
     if target.exists():
         shutil.rmtree(target)
     shutil.copytree(source, target, ignore=shutil.ignore_patterns("*.zip"))
+    return target
 
 
 def git_commit():
@@ -40,6 +44,10 @@ def selected_case_ids(processed_dir, cases, limit):
         wanted = [item.strip() for item in cases.split(",") if item.strip()]
         if cases == "smoke":
             wanted = ids[: limit or 3]
+        else:
+            unknown = [item for item in wanted if item not in ids]
+            if unknown:
+                raise ValueError(f"Unknown case id(s): {', '.join(unknown)}")
         ids = wanted
     if limit is not None:
         ids = ids[:limit]
@@ -57,7 +65,7 @@ def run_all(
 ):
     run_dir = Path(run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
-    copy_skill_snapshot(run_dir)
+    skill_snapshot = copy_skill_snapshot(run_dir)
     case_ids = selected_case_ids(processed_dir, cases, limit)
     config = {
         "processed_dir": str(processed_dir),
@@ -80,6 +88,7 @@ def run_all(
                 mock_agents=mock_agents,
                 agent_command=agent_command,
                 agent_timeout_seconds=agent_timeout_seconds,
+                skill_template=skill_snapshot,
             )
         )
     summary = summarize(run_dir)

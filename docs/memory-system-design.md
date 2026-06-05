@@ -19,8 +19,9 @@ A memory is useful only if the agent can retrieve it at the right time. The stor
 Each memory should define:
 
 - the remembered content,
-- the keyword or key-phrase queries that should retrieve it,
+- runtime keywords, aliases, or indexed terms that help retrieve it,
 - the priority of the memory,
+- separate keyword or key-phrase test queries that should retrieve it,
 - the expected fields or phrases that must appear in search results,
 - optional tags, source, and timestamps.
 
@@ -28,7 +29,7 @@ Before adding a new memory, the agent should design candidate tests and run thei
 
 ### 2. Tests Are The Source Of Truth
 
-The memory project should be shaped by tests. A new memory enters the system as a test case. A retrieval implementation is correct only if it passes the full suite.
+The memory project should be shaped by tests. A new memory enters the system as a candidate containing both durable content and retrieval assertions. The default templates split that candidate into a runtime memory record under `memories/` and a retrieval test case under `test-cases/`. A retrieval implementation is correct only if it passes the full suite.
 
 Agents should not weaken a test just to make implementation easier. A test passes when the expected memory appears anywhere in the full result list for a query and the required expected content appears in that matched result. Exact text equality and top-1 ranking are not required.
 
@@ -71,6 +72,8 @@ The implementation behind those commands may change. The agent's workflow should
 
 `memory-cli search <keyword-or-key-phrase>` should return the complete matching result list. It should not truncate results. The result list should be sorted by priority first, with retrieval score used only as a tie-breaker. When multiple keyword/key-phrase inputs are provided, `search` should return one result group per input in the same order.
 
+`search` should only read runtime memory records and runtime indexes. Test assertions in `test-cases/` are for `test` and `bench`; they are not live retrieval content.
+
 ### 5. Priority Has Operational Meaning
 
 Every memory test has a configurable priority. Priority affects:
@@ -107,7 +110,7 @@ When an agent uses the skill, it should:
 
 1. Find or initialize a memory CLI project.
 2. Query memory before tasks that may depend on durable user or project context.
-3. Add memories by creating retrieval tests.
+3. Add memories by creating retrieval tests and splitting them from runtime memory data.
 4. Run correctness and performance checks after changing memories or retrieval code.
 5. Optimize implementation only behind the stable CLI contract.
 6. Keep the memory system understandable enough that future agents can continue it.

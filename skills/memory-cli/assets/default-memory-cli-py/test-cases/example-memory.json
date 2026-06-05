@@ -1,0 +1,14 @@
+{
+  "memory_id": "mem-2026-05-30-memory-as-tests",
+  "priority": 90,
+  "queries": [
+    "memory system unit tests",
+    "agent memory retrieval tests",
+    "UT driven memory retrieval"
+  ],
+  "must_include": [
+    "retrieval unit tests",
+    "Adding memory means adding test cases",
+    "stable CLI contract"
+  ]
+}

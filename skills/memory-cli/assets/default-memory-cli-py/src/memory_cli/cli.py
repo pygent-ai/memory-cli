@@ -27,13 +27,15 @@ def resolve_memory_root(start=None):
 
 ROOT = resolve_memory_root()
 MEMORY_DIR = ROOT / "memories"
+TEST_CASE_DIR = ROOT / "test-cases"
 CONFIG_PATH = ROOT / "memory.config.json"
 
 
 def set_paths(next_root):
-    global ROOT, MEMORY_DIR, CONFIG_PATH
+    global ROOT, MEMORY_DIR, TEST_CASE_DIR, CONFIG_PATH
     ROOT = resolve_memory_root(next_root)
     MEMORY_DIR = ROOT / "memories"
+    TEST_CASE_DIR = ROOT / "test-cases"
     CONFIG_PATH = ROOT / "memory.config.json"
 
 
@@ -79,6 +81,18 @@ def active_memories():
     ]
 
 
+def load_test_cases():
+    if not TEST_CASE_DIR.exists():
+        return []
+    active_ids = {memory.get("id") for memory in active_memories()}
+    cases = []
+    for path in sorted(TEST_CASE_DIR.glob("*.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if data.get("memory_id") in active_ids:
+            cases.append(data)
+    return cases
+
+
 def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -98,8 +112,10 @@ def public_memory(memory):
 def init_project(root=None):
     root = Path(root or ROOT)
     memories = root / "memories"
+    test_cases = root / "test-cases"
     config = root / "memory.config.json"
     memories.mkdir(parents=True, exist_ok=True)
+    test_cases.mkdir(parents=True, exist_ok=True)
     if not config.exists():
         write_json(
             config,
@@ -114,7 +130,12 @@ def init_project(root=None):
                 },
             },
         )
-    return {"status": "initialized", "root": str(root), "memories": str(memories)}
+    return {
+        "status": "initialized",
+        "root": str(root),
+        "memories": str(memories),
+        "test_cases": str(test_cases),
+    }
 
 
 def list_memories():
@@ -183,7 +204,20 @@ def add_memory(candidate, force=False):
     if path.exists() and not force:
         return {"status": "exists", "id": candidate["id"], "path": str(path)}
 
-    write_json(path, candidate)
+    memory = {
+        key: value
+        for key, value in candidate.items()
+        if key not in {"queries", "must_include"}
+    }
+    test_case = {
+        "memory_id": candidate["id"],
+        "priority": candidate.get("priority", 0),
+        "queries": candidate.get("queries", []),
+        "must_include": candidate.get("must_include", []),
+    }
+
+    write_json(path, memory)
+    write_json(TEST_CASE_DIR / f"{candidate['id']}.json", test_case)
     return {"status": "added", "id": candidate["id"], "path": str(path)}
 
 
@@ -274,18 +308,18 @@ def run_tests():
     failures = []
     total = 0
 
-    for memory in active_memories():
-        for query in memory.get("queries", []):
+    for test_case in load_test_cases():
+        for query in test_case.get("queries", []):
             total += 1
             result = search(query)
             matched = next(
                 (
                     item
                     for item in result["matches"]
-                    if item["id"] == memory["id"]
+                    if item["id"] == test_case["memory_id"]
                     and all(
                         phrase.lower() in item["content"].lower()
-                        for phrase in memory.get("must_include", [])
+                        for phrase in test_case.get("must_include", [])
                     )
                 ),
                 None,
@@ -293,10 +327,10 @@ def run_tests():
             if matched is None:
                 failures.append(
                     {
-                        "memory_id": memory["id"],
-                        "priority": memory.get("priority", 0),
+                        "memory_id": test_case["memory_id"],
+                        "priority": test_case.get("priority", 0),
                         "query": query,
-                        "expected": memory.get("must_include", []),
+                        "expected": test_case.get("must_include", []),
                         "found_ids": [item["id"] for item in result["matches"]],
                     }
                 )
@@ -323,16 +357,17 @@ def percentile(values, percent):
 def bench():
     started = time.perf_counter()
     latencies = []
-    memories = active_memories()
-    for memory in memories:
-        for query in memory.get("queries", []):
+    test_cases = load_test_cases()
+    for test_case in test_cases:
+        for query in test_case.get("queries", []):
             query_start = time.perf_counter()
             search(query)
             latencies.append((time.perf_counter() - query_start) * 1000)
 
     total_ms = (time.perf_counter() - started) * 1000
     return {
-        "memories": len(memories),
+        "memories": len(active_memories()),
+        "test_cases": len(test_cases),
         "queries": len(latencies),
         "p50_search_ms": round(statistics.median(latencies), 3) if latencies else 0,
         "p95_search_ms": round(percentile(latencies, 0.95), 3),

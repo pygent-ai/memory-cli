@@ -34,15 +34,15 @@ def build_memory_input(item, id_map):
     return {"question_id": item["question_id"], "sessions": sessions}
 
 
-def build_question_input(item):
+def build_question_input(item, public_question_id):
     return {
-        "question_id": item["question_id"],
+        "question_id": public_question_id,
         "question": item["question"],
         "question_date": item["question_date"],
     }
 
 
-def build_private_eval(item, id_map):
+def build_private_eval(item, id_map, public_question_id):
     evidence_turns = []
     for session_id, timestamp, turns in zip(
         item["haystack_session_ids"],
@@ -63,7 +63,8 @@ def build_private_eval(item, id_map):
                 )
 
     return {
-        "question_id": item["question_id"],
+        "question_id": public_question_id,
+        "original_question_id": item["question_id"],
         "question_type": item["question_type"],
         "answer": item["answer"],
         "answer_session_ids": [
@@ -90,13 +91,16 @@ def prepare_cases(raw_path, out_dir, limit=None):
         data = data[:limit]
 
     case_ids = []
-    for item in data:
+    for index, item in enumerate(data, start=1):
         question_id = item["question_id"]
+        public_question_id = f"case_{index:04d}"
         id_map = session_id_map(item)
         case_dir = out_dir / "cases" / question_id
-        write_json(case_dir / "memory_input.json", build_memory_input(item, id_map))
-        write_json(case_dir / "question_input.json", build_question_input(item))
-        write_json(out_dir / "private_eval" / f"{question_id}.json", build_private_eval(item, id_map))
+        memory_input = build_memory_input(item, id_map)
+        memory_input["question_id"] = public_question_id
+        write_json(case_dir / "memory_input.json", memory_input)
+        write_json(case_dir / "question_input.json", build_question_input(item, public_question_id))
+        write_json(out_dir / "private_eval" / f"{question_id}.json", build_private_eval(item, id_map, public_question_id))
         case_ids.append(question_id)
 
     manifest = {

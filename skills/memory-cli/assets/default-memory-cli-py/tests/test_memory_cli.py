@@ -15,7 +15,9 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
         self.memory_dir = self.root / "memories"
+        self.test_case_dir = self.root / "test-cases"
         self.memory_dir.mkdir()
+        self.test_case_dir.mkdir()
         self.config_path = self.root / "memory.config.json"
         self.config_path.write_text(
             json.dumps(
@@ -35,19 +37,27 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         )
         self.old_root = memory_cli.ROOT
         self.old_memory_dir = memory_cli.MEMORY_DIR
+        self.old_test_case_dir = memory_cli.TEST_CASE_DIR
         self.old_config_path = memory_cli.CONFIG_PATH
         memory_cli.ROOT = self.root
         memory_cli.MEMORY_DIR = self.memory_dir
+        memory_cli.TEST_CASE_DIR = self.test_case_dir
         memory_cli.CONFIG_PATH = self.config_path
 
     def tearDown(self):
         memory_cli.ROOT = self.old_root
         memory_cli.MEMORY_DIR = self.old_memory_dir
+        memory_cli.TEST_CASE_DIR = self.old_test_case_dir
         memory_cli.CONFIG_PATH = self.old_config_path
         self.tmp.cleanup()
 
     def write_memory(self, name, **data):
         (self.memory_dir / f"{name}.json").write_text(
+            json.dumps(data), encoding="utf-8"
+        )
+
+    def write_test_case(self, name, **data):
+        (self.test_case_dir / f"{name}.json").write_text(
             json.dumps(data), encoding="utf-8"
         )
 
@@ -68,6 +78,24 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         result = memory_cli.search("shared topic")
 
         self.assertEqual(["mem-2", "mem-1", "mem-0"], [m["id"] for m in result["matches"]])
+
+    def test_search_returns_generic_source_but_not_experiment_fields(self):
+        self.write_memory(
+            "source-backed",
+            id="source-backed",
+            priority=80,
+            content="The user had a GPS issue after first service.",
+            queries=["GPS issue"],
+            must_include=["GPS issue"],
+            session_ids=["session_0002"],
+            source="LongMemEval case_0001 session_0002",
+        )
+
+        result = memory_cli.search("GPS issue")
+
+        self.assertEqual("source-backed", result["matches"][0]["id"])
+        self.assertEqual("LongMemEval case_0001 session_0002", result["matches"][0]["source"])
+        self.assertNotIn("session_ids", result["matches"][0])
 
     def test_search_many_returns_matches_grouped_by_input_keyword_order(self):
         self.write_memory(
@@ -153,20 +181,25 @@ class MemoryCliBehaviorTest(unittest.TestCase):
 
         self.assertEqual([], result["matches"])
 
-    def test_memory_test_passes_when_expected_content_appears_anywhere_in_results(self):
+    def test_memory_test_cases_are_loaded_from_test_case_directory(self):
         self.write_memory(
             "stronger-related-result",
             id="related",
             priority=95,
             content="python python python related implementation note",
-            queries=["python memory"],
-            must_include=["implementation note"],
+            keywords=["python", "memory"],
         )
         self.write_memory(
             "expected-memory",
             id="expected",
             priority=60,
             content="remember exact expected content for python memory",
+            keywords=["python", "memory"],
+        )
+        self.write_test_case(
+            "expected-memory",
+            memory_id="expected",
+            priority=60,
             queries=["python memory"],
             must_include=["exact expected content"],
         )
@@ -194,6 +227,7 @@ class MemoryCliBehaviorTest(unittest.TestCase):
 
         self.assertEqual("initialized", result["status"])
         self.assertTrue((empty_root / "memories").is_dir())
+        self.assertTrue((empty_root / "test-cases").is_dir())
         self.assertTrue((empty_root / "memory.config.json").is_file())
 
     def test_list_and_show_return_memory_summaries(self):
@@ -292,7 +326,13 @@ class MemoryCliBehaviorTest(unittest.TestCase):
         result = memory_cli.add_memory(candidate)
 
         self.assertEqual("added", result["status"])
-        self.assertEqual("new standalone memory", self.read_memory("mem-new")["content"])
+        stored = self.read_memory("mem-new")
+        self.assertEqual("new standalone memory", stored["content"])
+        self.assertNotIn("queries", stored)
+        self.assertNotIn("must_include", stored)
+        test_case = json.loads((self.test_case_dir / "mem-new.json").read_text(encoding="utf-8"))
+        self.assertEqual("mem-new", test_case["memory_id"])
+        self.assertEqual(["standalone"], test_case["queries"])
 
     def test_add_memory_refuses_conflicts_without_force(self):
         self.write_memory(
