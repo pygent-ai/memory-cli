@@ -16,6 +16,7 @@ class SkillTemplateContractTest(unittest.TestCase):
             self.assertTrue(template.is_dir(), f"missing {template.name}")
             self.assertTrue((template / "memory.config.json").is_file())
             self.assertTrue((template / "memories" / "example-memory.json").is_file())
+            self.assertTrue((template / "test-cases" / "example-memory.json").is_file())
 
     def test_javascript_template_exposes_memory_cli_bin_and_test_script(self):
         package_json = json.loads(

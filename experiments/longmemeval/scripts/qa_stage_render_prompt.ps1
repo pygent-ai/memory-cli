@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
-$q = Get-Content -Raw -LiteralPath $env:INPUT_JSON | ConvertFrom-Json
-$template = Get-Content -Raw -LiteralPath $env:PROMPT_TEMPLATE
+$q = Get-Content -Raw -Encoding UTF8 -LiteralPath $env:INPUT_JSON | ConvertFrom-Json
+$template = Get-Content -Raw -Encoding UTF8 -LiteralPath $env:PROMPT_TEMPLATE
 $questionText = $q.question + "`n`nQuestion date: " + $q.question_date
 $prompt = $template.Replace('{{QUESTION}}', $questionText)
 

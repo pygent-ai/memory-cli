@@ -38,10 +38,11 @@ Use a layout like:
 
 - `src/` or `memory_cli/`: CLI and retrieval implementation.
 - `memories/`: durable runtime memory records used by `search`, `list`, `show`, conflict checks, and indexes.
+- `test-cases/`: retrieval unit-test queries and assertions used by `test` and `bench`.
 - `indexes/` or `.memory-index/`: optional generated runtime retrieval artifacts.
-- `tests/`, `test-cases/`, or `fixtures/`: retrieval unit-test queries and assertions.
+- `tests/` or `fixtures/`: ordinary project tests and fixtures.
 
-`search` may read only runtime memory records and runtime indexes. `test` and `bench` may read test cases and then call the public CLI/search path. If a candidate file contains both memory content and retrieval tests, `add` should distill or split it into runtime memory data and test-only assertions before relying on it.
+`search` may read only runtime memory records and runtime indexes. `test` and `bench` may read `test-cases/` and then call the public CLI/search path. If a candidate file contains both memory content and retrieval tests, `add` must split it into runtime memory data under `memories/` and test-only assertions under `test-cases/`.
 
 ## Workflow
 
@@ -64,7 +65,7 @@ memory-cli search "<keyword-or-key-phrase>" ["another-keyword-or-key-phrase"...]
 Use keyword and key-phrase queries for retrieval unit tests and normal searches. Multiple keyword arguments may match the same memory. When `search` receives multiple keyword arguments, it returns one result group per input keyword in the same order.
 
 5. Add memory by designing candidate retrieval tests first. Save the candidate as JSON and run `memory-cli check-conflicts --file <candidate.json>`.
-6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, distill the candidate into the current retrieval implementation with `memory-cli add --file <candidate.json>`, or merge with/modify existing test cases when that preserves the intended memory better than adding a separate case.
+6. If candidate memory conflicts with existing memory, ask the user how to resolve it. If it does not conflict, distill the candidate into the current retrieval implementation with `memory-cli add --file <candidate.json>`. The default templates split candidate runtime fields into `memories/` and candidate `queries` / `must_include` assertions into `test-cases/`.
 7. After changing memory cases or retrieval code, run:
 
 ```bash
@@ -100,7 +101,7 @@ Respect the project's config. A typical config treats failed memories at or abov
 
 Start with the simplest implementation that passes tests. It is acceptable for early memory projects to use JSON scans or hard-coded logic.
 
-Do not implement retrieval by reading unit-test assertions as the live search corpus. Treat fields such as `queries` and `must_include` as test metadata unless the project explicitly defines separate runtime aliases or keywords. In memory records, `queries` should be keyword or key-phrase test inputs, not full prompts. Use tests to drive and verify the implementation, then store or encode the resulting memory facts in the system's runtime structures.
+Do not implement retrieval by reading unit-test assertions as the live search corpus. Treat fields such as `queries` and `must_include` as test metadata stored outside runtime memory records unless the project explicitly defines separate runtime aliases or keywords. Candidate `queries` should be keyword or key-phrase test inputs, not full prompts. Use tests to drive and verify the implementation, then store or encode the resulting memory facts in the system's runtime structures.
 
 When the test suite grows or `bench` exceeds budget, read `references/retrieval-optimization-guide.md` and improve internals without changing the CLI output contract.
 

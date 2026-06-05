@@ -10,6 +10,7 @@ function withProject(fn) {
   const oldRoot = memoryCli.root;
   memoryCli.setPaths(root);
   fs.mkdirSync(memoryCli.memoryDir);
+  fs.mkdirSync(memoryCli.testCaseDir);
   fs.writeFileSync(memoryCli.configPath, JSON.stringify({
     priority_thresholds: { blocking_failure: 80, warning_failure: 40 },
     performance_budget_ms: { p95_search: 200, full_test_suite: 5000 }
@@ -24,6 +25,10 @@ function withProject(fn) {
 
 function writeMemory(name, data) {
   fs.writeFileSync(path.join(memoryCli.memoryDir, `${name}.json`), JSON.stringify(data));
+}
+
+function writeTestCase(name, data) {
+  fs.writeFileSync(path.join(memoryCli.testCaseDir, `${name}.json`), JSON.stringify(data));
 }
 
 test("search returns all matches ordered by priority before score", () => withProject(() => {
@@ -87,8 +92,9 @@ test("search does not score test queries as runtime content", () => withProject(
 }));
 
 test("memory tests pass when expected content appears anywhere in results", () => withProject(() => {
-  writeMemory("related", { id: "related", priority: 95, content: "python python related implementation note", queries: ["python memory"], must_include: ["implementation note"] });
-  writeMemory("expected", { id: "expected", priority: 60, content: "remember exact expected content for python memory", queries: ["python memory"], must_include: ["exact expected content"] });
+  writeMemory("related", { id: "related", priority: 95, content: "python python related implementation note", keywords: ["python", "memory"] });
+  writeMemory("expected", { id: "expected", priority: 60, content: "remember exact expected content for python memory", keywords: ["python", "memory"] });
+  writeTestCase("expected", { memory_id: "expected", priority: 60, queries: ["python memory"], must_include: ["exact expected content"] });
 
   assert.deepEqual(memoryCli.runTests().failures, []);
 }));
@@ -97,6 +103,11 @@ test("management commands add update retire and exclude retired memories", () =>
   const candidate = { id: "mem-new", priority: 60, content: "new standalone memory", queries: ["standalone"], must_include: ["standalone"] };
 
   assert.equal(memoryCli.addMemory(candidate).status, "added");
+  const stored = JSON.parse(fs.readFileSync(path.join(memoryCli.memoryDir, "mem-new.json"), "utf8"));
+  const testCase = JSON.parse(fs.readFileSync(path.join(memoryCli.testCaseDir, "mem-new.json"), "utf8"));
+  assert.equal("queries" in stored, false);
+  assert.equal("must_include" in stored, false);
+  assert.deepEqual(testCase.queries, ["standalone"]);
   assert.equal(memoryCli.updateMemory("mem-new", { priority: 90 }).status, "updated");
   assert.equal(memoryCli.retireMemory("mem-new", "stale").status, "retired");
   assert.deepEqual(memoryCli.search("standalone").matches, []);
@@ -108,6 +119,7 @@ test("init creates memory project files", () => withProject((root) => {
 
   assert.equal(memoryCli.initProject(emptyRoot).status, "initialized");
   assert.equal(fs.existsSync(path.join(emptyRoot, "memories")), true);
+  assert.equal(fs.existsSync(path.join(emptyRoot, "test-cases")), true);
   assert.equal(fs.existsSync(path.join(emptyRoot, "memory.config.json")), true);
 }));
 

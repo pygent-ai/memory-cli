@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import re
 from pathlib import Path
 
 
@@ -33,13 +34,34 @@ def recall_at(ranked_ids, evidence_ids, k):
     return len(evidence.intersection(ranked_ids[:k])) / len(evidence)
 
 
+def match_session_ids(match):
+    ids = []
+    for field in ("session_ids", "source_session_ids"):
+        value = match.get(field)
+        if isinstance(value, list):
+            ids.extend(item for item in value if isinstance(item, str))
+    value = match.get("session_id")
+    if isinstance(value, str):
+        ids.append(value)
+
+    source = match.get("source")
+    if isinstance(source, str):
+        ids.extend(re.findall(r"session_\d{4}", source))
+        for grouped in re.findall(r"sessions_([0-9_]+)", source):
+            ids.extend(f"session_{item}" for item in grouped.split("_") if len(item) == 4)
+
+    if not ids and isinstance(match.get("id"), str):
+        ids.append(match["id"])
+    return ids
+
+
 def flatten_retrieval_ids(retrieval):
     ids = []
     for query in retrieval.get("queries", []):
         for match in query.get("matches", []):
-            memory_id = match.get("id")
-            if memory_id and memory_id not in ids:
-                ids.append(memory_id)
+            for item_id in match_session_ids(match):
+                if item_id and item_id not in ids:
+                    ids.append(item_id)
     return ids
 
 
@@ -49,6 +71,12 @@ def answer_matches(reference, hypothesis):
     if not reference or not hypothesis:
         return False
     return reference in hypothesis or hypothesis in reference
+
+
+def manual_answer_match(case_dir):
+    review = load_json(Path(case_dir) / "outputs" / "manual_review.json", {})
+    value = review.get("answer_correct")
+    return value if isinstance(value, bool) else None
 
 
 def evaluate_case(case_dir):
@@ -62,6 +90,8 @@ def evaluate_case(case_dir):
     hypothesis = answer.get("answer", "")
     reference = private_eval.get("answer", "")
     is_abstention = private_eval.get("is_abstention", False)
+    substring_match = answer_matches(reference, hypothesis)
+    reviewed_match = manual_answer_match(case_dir)
 
     latencies = [
         query.get("latency_ms", 0)
@@ -79,7 +109,9 @@ def evaluate_case(case_dir):
         "recall_at_10": recall_at(ranked_ids, evidence_ids, 10),
         "ndcg_at_5": ndcg_at(ranked_ids, evidence_ids, 5),
         "ndcg_at_10": ndcg_at(ranked_ids, evidence_ids, 10),
-        "answer_substring_match": answer_matches(reference, hypothesis),
+        "answer_substring_match": substring_match,
+        "manual_answer_match": reviewed_match,
+        "answer_correct": substring_match or reviewed_match is True,
         "abstention_answered": bool(hypothesis.strip()) if is_abstention else None,
         "search_latency_ms_total": round(sum(latencies), 3),
         "search_latency_ms_max": round(max(latencies), 3) if latencies else 0,

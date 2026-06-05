@@ -12,6 +12,8 @@ METRIC_KEYS = [
     "ndcg_at_5",
     "ndcg_at_10",
     "answer_substring_match",
+    "manual_answer_match",
+    "answer_correct",
     "search_latency_ms_total",
     "search_latency_ms_max",
 ]

@@ -29,12 +29,30 @@ def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def copy_inputs(processed_dir, question_id, case_dir):
+def copy_memory_input(processed_dir, question_id, case_dir):
     processed_dir = Path(processed_dir)
     input_dir = case_dir / "work" / "input"
     input_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(processed_dir / "cases" / question_id / "memory_input.json", input_dir / "memory_input.json")
+
+
+def copy_question_input(processed_dir, question_id, case_dir):
+    processed_dir = Path(processed_dir)
+    input_dir = case_dir / "work" / "input"
+    input_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(processed_dir / "cases" / question_id / "question_input.json", input_dir / "question_input.json")
+
+
+def prepare_qa_input(processed_dir, question_id, case_dir):
+    input_dir = Path(case_dir) / "work" / "input"
+    memory_input = input_dir / "memory_input.json"
+    if memory_input.exists():
+        memory_input.unlink()
+    copy_question_input(processed_dir, question_id, case_dir)
+
+
+def copy_private_eval(processed_dir, question_id, case_dir):
+    processed_dir = Path(processed_dir)
     shutil.copy2(processed_dir / "private_eval" / f"{question_id}.json", case_dir / "private_eval_ref.json")
 
 
@@ -42,14 +60,17 @@ def scripts_dir(venv_dir):
     return venv_dir / ("Scripts" if os.name == "nt" else "bin")
 
 
-def create_case_venv(work_dir):
+def create_case_venv(work_dir, template=TEMPLATE):
+    work_dir = Path(work_dir).resolve()
     venv_dir = work_dir / ".venv"
     if not venv_dir.exists():
         venv.EnvBuilder(with_pip=False).create(venv_dir)
 
     wrapper = scripts_dir(venv_dir) / ("memory-cli.cmd" if os.name == "nt" else "memory-cli")
     python_exe = scripts_dir(venv_dir) / ("python.exe" if os.name == "nt" else "python")
-    cli_path = TEMPLATE / "src" / "memory_cli" / "cli.py"
+    cli_path = Path(template) / "assets" / "default-memory-cli-py" / "src" / "memory_cli" / "cli.py"
+    if not cli_path.exists():
+        cli_path = Path(template) / "src" / "memory_cli" / "cli.py"
     if os.name == "nt":
         wrapper.write_text(
             f'@echo off\r\n"{python_exe}" "{cli_path}" %*\r\n',
@@ -65,6 +86,7 @@ def create_case_venv(work_dir):
 
 
 def run_memory_cli(work_dir, *args, cwd=None):
+    work_dir = Path(work_dir).resolve()
     command = [str(scripts_dir(work_dir / ".venv") / ("memory-cli.cmd" if os.name == "nt" else "memory-cli")), *args]
     completed = subprocess.run(command, cwd=cwd or work_dir, text=True, capture_output=True, check=False)
     if completed.returncode != 0:
@@ -97,7 +119,7 @@ def mock_build_agent(work_dir):
             ],
             "must_include": [session["session_id"]],
             "tags": ["longmemeval", "session"],
-            "source": f"LongMemEval {memory_input['question_id']} session {index}",
+            "source": f"LongMemEval {memory_input['question_id']} {session['session_id']}",
             "timestamp": session["timestamp"],
         }
         write_json(memory_dir / f"{session['session_id']}.json", memory)
@@ -149,6 +171,41 @@ def mock_qa_agent(work_dir):
     write_json(work_dir.parent / "logs" / "qa_agent.json", {"mode": "mock"})
 
 
+def answer_search_queries(answer):
+    queries = []
+    for item in answer.get("search_queries_and_cli_results", []):
+        if isinstance(item, dict):
+            query = item.get("query")
+            if isinstance(query, str) and query.strip():
+                queries.append(query.strip())
+    return queries
+
+
+def complete_retrieval_from_answer(case_dir):
+    case_dir = Path(case_dir)
+    work_dir = case_dir / "work"
+    answer = read_json(case_dir / "outputs" / "answer.json")
+    queries = []
+    for query in answer_search_queries(answer):
+        started = time.perf_counter()
+        result = run_memory_cli(work_dir, "search", query, cwd=work_dir / ".memory")
+        latency_ms = (time.perf_counter() - started) * 1000
+        queries.append(
+            {
+                "query": query,
+                "latency_ms": round(latency_ms, 3),
+                "matches": result.get("matches", []),
+            }
+        )
+
+    retrieval = {
+        "question_id": answer.get("question_id") or case_dir.name,
+        "queries": queries,
+    }
+    write_json(case_dir / "outputs" / "retrieval.json", retrieval)
+    return retrieval
+
+
 def load_prompt(path):
     return Path(path).read_text(encoding="utf-8").strip()
 
@@ -157,7 +214,7 @@ def render_answer_prompt(work_dir):
     question = read_json(work_dir / "input" / "question_input.json")
     template = load_prompt(ROOT / "experiments" / "longmemeval" / "prompts" / "answer_from_memory.md")
     question_text = f"{question['question']}\n\nQuestion date: {question['question_date']}"
-    return template.replace("【QUESTION】", question_text)
+    return template.replace("{{QUESTION}}", question_text)
 
 
 def normalize_answer_output(case_dir):
@@ -230,6 +287,7 @@ def run_real_agent(work_dir, agent_command, prompt_path, log_path, timeout_secon
 
 
 def run_qa_stage_cmd(case_dir, agent_command, timeout_seconds):
+    case_dir = Path(case_dir).resolve()
     command = [
         str(ROOT / "experiments" / "longmemeval" / "scripts" / "qa_stage.cmd"),
         str(case_dir),
@@ -264,19 +322,22 @@ def run_case(
     mock_agents=False,
     agent_command="codex exec --skip-git-repo-check",
     agent_timeout_seconds=900,
+    skill_template=None,
 ):
     case_dir = Path(run_dir) / "cases" / question_id
     if case_dir.exists():
         shutil.rmtree(case_dir)
     (case_dir / "logs").mkdir(parents=True, exist_ok=True)
     (case_dir / "outputs").mkdir(parents=True, exist_ok=True)
-    copy_inputs(processed_dir, question_id, case_dir)
+    copy_memory_input(processed_dir, question_id, case_dir)
     work_dir = case_dir / "work"
-    create_case_venv(work_dir)
+    create_case_venv(work_dir, skill_template or TEMPLATE)
 
     if mock_agents:
         mock_build_agent(work_dir)
+        prepare_qa_input(processed_dir, question_id, case_dir)
         mock_qa_agent(work_dir)
+        copy_private_eval(processed_dir, question_id, case_dir)
         mock_judge(case_dir)
     else:
         run_real_agent(
@@ -286,7 +347,10 @@ def run_case(
             case_dir / "logs" / "build_agent.json",
             agent_timeout_seconds,
         )
+        prepare_qa_input(processed_dir, question_id, case_dir)
         run_qa_stage_cmd(case_dir, agent_command, agent_timeout_seconds)
+        complete_retrieval_from_answer(case_dir)
+        copy_private_eval(processed_dir, question_id, case_dir)
 
     return evaluate_case(case_dir)
 

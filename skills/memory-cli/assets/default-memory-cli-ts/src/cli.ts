@@ -8,8 +8,8 @@ export type MemoryRecord = {
   id: string;
   priority: number;
   content: string;
-  queries: string[];
-  must_include: string[];
+  queries?: string[];
+  must_include?: string[];
   status?: string;
   tags?: string[];
   aliases?: string[];
@@ -20,6 +20,18 @@ export type MemoryRecord = {
   retired_at?: string;
   retired_reason?: string;
   _path?: string;
+};
+
+export type MemoryCandidate = MemoryRecord & {
+  queries: string[];
+  must_include: string[];
+};
+
+export type MemoryTestCase = {
+  memory_id: string;
+  priority: number;
+  queries: string[];
+  must_include: string[];
 };
 
 export type SearchMatch = {
@@ -60,11 +72,13 @@ export function resolveMemoryRoot(start = process.cwd()): string {
 
 export let root = resolveMemoryRoot();
 export let memoryDir = path.join(root, "memories");
+export let testCaseDir = path.join(root, "test-cases");
 export let configPath = path.join(root, "memory.config.json");
 
 export function setPaths(nextRoot: string): void {
   root = resolveMemoryRoot(nextRoot);
   memoryDir = path.join(root, "memories");
+  testCaseDir = path.join(root, "test-cases");
   configPath = path.join(root, "memory.config.json");
 }
 
@@ -121,6 +135,16 @@ export function activeMemories(): MemoryRecord[] {
   return loadMemories().filter((memory) => (memory.status ?? "active") !== "retired");
 }
 
+export function loadTestCases(): MemoryTestCase[] {
+  if (!fs.existsSync(testCaseDir)) return [];
+  const activeIds = new Set(activeMemories().map((memory) => memory.id));
+  return fs.readdirSync(testCaseDir)
+    .filter((name) => name.endsWith(".json"))
+    .sort()
+    .map((name) => readJson<MemoryTestCase>(path.join(testCaseDir, name)))
+    .filter((testCase) => activeIds.has(testCase.memory_id));
+}
+
 export function memoryPath(memoryId: string): string {
   const found = loadMemories().find((memory) => memory.id === memoryId);
   return found?._path ?? path.join(memoryDir, `${memoryId}.json`);
@@ -133,15 +157,17 @@ export function publicMemory(memory: MemoryRecord): Omit<MemoryRecord, "_path"> 
 
 export function initProject(targetRoot = root) {
   const memories = path.join(targetRoot, "memories");
+  const testCases = path.join(targetRoot, "test-cases");
   const config = path.join(targetRoot, "memory.config.json");
   fs.mkdirSync(memories, { recursive: true });
+  fs.mkdirSync(testCases, { recursive: true });
   if (!fs.existsSync(config)) {
     writeJson(config, {
       priority_thresholds: { blocking_failure: 80, warning_failure: 40 },
       performance_budget_ms: { p95_search: 200, full_test_suite: 5000 }
     });
   }
-  return { status: "initialized", root: targetRoot, memories };
+  return { status: "initialized", root: targetRoot, memories, test_cases: testCases };
 }
 
 export function listMemories() {
@@ -211,7 +237,7 @@ export function searchMany(queries: string[]): MultiSearchResult {
   return { queries: queries.map((query) => search(query)) };
 }
 
-export function checkConflicts(candidate: MemoryRecord) {
+export function checkConflicts(candidate: MemoryCandidate) {
   const validation = validateMemory(candidate);
   if (!validation.valid) return { valid: false, conflicts: [], missing: validation.missing };
   const conflicts = [];
@@ -225,13 +251,20 @@ export function checkConflicts(candidate: MemoryRecord) {
   return { valid: true, conflicts };
 }
 
-export function addMemory(candidate: MemoryRecord, force = false) {
+export function addMemory(candidate: MemoryCandidate, force = false) {
   const conflicts = checkConflicts(candidate);
   if (!conflicts.valid) return { status: "invalid", ...conflicts };
   if (conflicts.conflicts.length && !force) return { status: "conflict", ...conflicts };
   const target = memoryPath(candidate.id);
   if (fs.existsSync(target) && !force) return { status: "exists", id: candidate.id, path: target };
-  writeJson(target, candidate);
+  const { queries, must_include: mustInclude, ...memory } = candidate;
+  writeJson(target, memory);
+  writeJson(path.join(testCaseDir, `${candidate.id}.json`), {
+    memory_id: candidate.id,
+    priority: candidate.priority ?? 0,
+    queries: queries ?? [],
+    must_include: mustInclude ?? []
+  });
   return { status: "added", id: candidate.id, path: target };
 }
 
@@ -255,19 +288,19 @@ export function runTests() {
   const blockingPriority = loadConfig().priority_thresholds.blocking_failure;
   const failures = [];
   let total = 0;
-  for (const memory of activeMemories()) {
-    for (const query of memory.queries ?? []) {
+  for (const testCase of loadTestCases()) {
+    for (const query of testCase.queries ?? []) {
       total += 1;
       const result = search(query);
       const matched = result.matches.find((item) =>
-        item.id === memory.id && (memory.must_include ?? []).every((phrase) => item.content.toLowerCase().includes(String(phrase).toLowerCase()))
+        item.id === testCase.memory_id && (testCase.must_include ?? []).every((phrase) => item.content.toLowerCase().includes(String(phrase).toLowerCase()))
       );
       if (!matched) {
         failures.push({
-          memory_id: memory.id,
-          priority: memory.priority ?? 0,
+          memory_id: testCase.memory_id,
+          priority: testCase.priority ?? 0,
           query,
-          expected: memory.must_include ?? [],
+          expected: testCase.must_include ?? [],
           found_ids: result.matches.map((item) => item.id)
         });
       }
@@ -291,16 +324,17 @@ function percentile(values: number[], percent: number): number {
 export function bench() {
   const started = performance.now();
   const latencies = [];
-  const memories = activeMemories();
-  for (const memory of memories) {
-    for (const query of memory.queries ?? []) {
+  const testCases = loadTestCases();
+  for (const testCase of testCases) {
+    for (const query of testCase.queries ?? []) {
       const queryStarted = performance.now();
       search(query);
       latencies.push(performance.now() - queryStarted);
     }
   }
   return {
-    memories: memories.length,
+    memories: activeMemories().length,
+    test_cases: testCases.length,
     queries: latencies.length,
     p50_search_ms: latencies.length ? Number(percentile(latencies, 0.5).toFixed(3)) : 0,
     p95_search_ms: Number(percentile(latencies, 0.95).toFixed(3)),
@@ -323,9 +357,9 @@ export function main(argv = process.argv.slice(2)): number {
   }
   if (command === "init") result = initProject(valueAfter(args, "--path") ?? ".");
   else if (command === "search") result = args.length === 1 ? search(args[0]) : searchMany(args);
-  else if (command === "check-conflicts") result = checkConflicts(readJson<MemoryRecord>(requiredValue(args, "--file")));
+  else if (command === "check-conflicts") result = checkConflicts(readJson<MemoryCandidate>(requiredValue(args, "--file")));
   else if (command === "add") {
-    result = addMemory(readJson<MemoryRecord>(requiredValue(args, "--file")), args.includes("--force"));
+    result = addMemory(readJson<MemoryCandidate>(requiredValue(args, "--file")), args.includes("--force"));
     if (["conflict", "invalid", "exists"].includes(String((result as { status: string }).status))) code = 1;
   } else if (command === "list") result = listMemories();
   else if (command === "show") {
