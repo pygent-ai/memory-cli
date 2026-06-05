@@ -53,6 +53,52 @@ Each important memory should contain facts that directly answer likely questions
 - "X and Y are related by RELATIONSHIP."
 - "X used to be OLD_STATE; after EVENT_OR_DECISION it became NEW_STATE."
 
+### Answer-Bearing Details
+
+Do not preserve only high-level summaries when the source contains details that a future user may ask for directly.
+
+Preserve exact values such as numbers, dates, durations, prices, percentages, quantities, names, titles, URLs, handles, locations, ordered-list positions, versions, model names, and selected options.
+
+Bad:
+
+- "The user discussed a project planning tool."
+
+Good:
+
+- "The user selected Linear for project tracking on 2026-05-12 because they wanted lightweight issue triage, GitHub integration, and cycle planning."
+
+### Lists And Enumerations
+
+When the source contains a numbered list, recommendation list, comparison table, recipe, checklist, ranking, generated options, or resource list, preserve item-level details that may be queried later.
+
+For important items, retain:
+
+- position or label when present
+- item name
+- distinguishing attributes
+- exact value, link, or decision when present
+
+For long lists, preserve a compact index rather than collapsing the whole list into a topic summary.
+
+### Transferable Preferences
+
+When a source reveals a user preference inside a specific task, preserve both the task-specific decision and the reusable preference.
+
+Good:
+
+- "The user chose Option A for this purchase because it was compact and quiet."
+- "The reusable preference is that the user tends to prefer compact, quiet tools for shared workspaces."
+
+Do not store only the specific item when the reason should guide future similar choices.
+
+### Timelines And Current Values
+
+When a fact changes over time, preserve the previous value, the updated value, and which value is current. Include the date, event, or source that established the current value when available.
+
+Good:
+
+- "The user initially preferred Tool A for deployment automation. After the staging incident on 2026-04-18, they switched to Tool B; Tool B is the current preference."
+
 ## Retrieval Test Queries
 
 Every important memory should include multiple keyword or key-phrase queries. Cover exact names, aliases, categories, relationships, and compact phrases that should retrieve the same memory. Useful patterns include:
@@ -67,6 +113,18 @@ Every important memory should include multiple keyword or key-phrase queries. Co
 
 Queries should be short retrieval keys, not full prompts. Multiple queries may match the same memory, and a search may receive multiple keyword/key-phrase inputs that return separate result groups in input order.
 
+For preference and reusable-context memories, include queries at multiple levels:
+
+- source-context queries: terms from the original situation
+- generalized queries: reusable preference or relationship language
+- transfer-context queries: likely future situations where the memory should still apply
+
+Example:
+
+- Source context: "quiet mechanical keyboard for office"
+- Generalized: "prefers quiet compact tools"
+- Transfer context: "shared workspace equipment recommendation"
+
 ## Review Checklist
 
 Before adding or updating a memory, check:
@@ -78,3 +136,7 @@ Before adding or updating a memory, check:
 - Does it capture state changes when the source contains a timeline?
 - Can the content directly answer facts implied by the keyword or key-phrase queries?
 - Do the retrieval tests include several keywords or key phrases for entities, aliases, relationships, source locations, current status, and categories when relevant?
+- Does it preserve exact answer-bearing details rather than only the topic?
+- If the source contains a list or enumeration, does the memory preserve important item-level details?
+- If the source contains a reusable preference, do the tests include source-context, generalized, and transfer-context queries?
+- If the source changes an existing fact, is the current value explicit?

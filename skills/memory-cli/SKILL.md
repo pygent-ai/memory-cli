@@ -81,6 +81,8 @@ Read `references/memory-test-contract.md` before adding, reviewing, migrating, o
 
 When extracting new memory from conversations, documents, project history, or external source material, read `references/memory-extraction-guide.md`. Use it to turn source material into answerable, testable memories with entities, aliases, time/place facts, relationships, state changes, and keyword/key-phrase retrieval tests.
 
+When extracting memories, avoid topic-only summaries. Preserve exact answer-bearing details, item-level list information, reusable preferences, cross-context retrieval terms, and current values for changing facts.
+
 Retired memories stay on disk for audit history but must not appear in normal search results, conflict checks, tests, or benchmarks.
 
 ## Priority Semantics

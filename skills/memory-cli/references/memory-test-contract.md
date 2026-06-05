@@ -106,6 +106,10 @@ Retrieval assertions live under `test-cases/`:
 - Multiple queries may intentionally retrieve the same memory. Each query is evaluated independently.
 - A memory should be explicit and useful. Do not preserve raw conversation trivia unless it changes future behavior.
 - If two memories conflict, create a new higher-priority memory that explains the current rule and retire or lower the stale one.
+- For memories with exact answer-bearing details, `must_include` should include the exact value or name when practical, not only broad topic words.
+- For list or enumeration memories, queries should cover item lookup by position, distinguishing attribute, and category when relevant.
+- For reusable preferences, queries should include source-context, generalized, and transfer-context phrasing.
+- For changing facts, `must_include` should include the current value and enough timeline context to distinguish it from older values.
 
 ## Test Boundary
 
