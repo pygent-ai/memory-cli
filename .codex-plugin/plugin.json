@@ -1,0 +1,39 @@
+{
+  "name": "memory-cli",
+  "version": "0.1.0",
+  "description": "Build, query, test, and optimize local agent memory CLIs with retrieval tests.",
+  "author": {
+    "name": "Pygent AI",
+    "url": "https://github.com/pygent-ai"
+  },
+  "homepage": "https://github.com/pygent-ai/memory-cli#readme",
+  "repository": "https://github.com/pygent-ai/memory-cli",
+  "license": "Apache-2.0",
+  "keywords": [
+    "codex",
+    "agent",
+    "skill",
+    "memory",
+    "retrieval",
+    "testing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Memory CLI",
+    "shortDescription": "Build tested local memory systems for agents.",
+    "longDescription": "Memory CLI teaches agents to create, query, test, and evolve durable workspace memory systems where important memories are backed by retrieval tests.",
+    "developerName": "Pygent AI",
+    "category": "Productivity",
+    "capabilities": [
+      "Memory",
+      "Skills",
+      "Testing"
+    ],
+    "defaultPrompt": [
+      "Initialize a local memory CLI in this workspace.",
+      "Search project memory before this task.",
+      "Add a durable memory with retrieval tests."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

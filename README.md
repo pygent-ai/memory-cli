@@ -16,6 +16,15 @@ Install the skill with:
 gh skill install pygent-ai/memory-cli
 ```
 
+The skill is also packaged for npm distribution:
+
+```bash
+npm install @pygent-ai/memory-cli
+```
+
+The npm package includes a Codex plugin manifest at `.codex-plugin/plugin.json`
+and the reusable skill under `skills/memory-cli`.
+
 ## Experiment Results
 
 LongMemEval oracle experiments are documented in

@@ -9,6 +9,31 @@ ASSETS = SKILL_ROOT / "assets"
 
 
 class SkillTemplateContractTest(unittest.TestCase):
+    def test_root_package_metadata_publishes_skill_plugin(self):
+        package_json = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+
+        self.assertEqual("@pygent-ai/memory-cli", package_json["name"])
+        self.assertEqual("0.1.0", package_json["version"])
+        self.assertEqual("Apache-2.0", package_json["license"])
+        self.assertEqual("https://registry.npmjs.org/", package_json["publishConfig"]["registry"])
+        self.assertEqual("public", package_json["publishConfig"]["access"])
+        self.assertIn(".codex-plugin/", package_json["files"])
+        self.assertIn("skills/", package_json["files"])
+        self.assertNotIn("experiments/", package_json["files"])
+        self.assertNotIn("datasets/", package_json["files"])
+
+    def test_codex_plugin_manifest_points_to_skill_directory(self):
+        plugin_json = json.loads(
+            (ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8")
+        )
+
+        self.assertEqual("memory-cli", plugin_json["name"])
+        self.assertEqual("0.1.0", plugin_json["version"])
+        self.assertEqual("Apache-2.0", plugin_json["license"])
+        self.assertEqual("./skills/", plugin_json["skills"])
+        self.assertEqual("Memory CLI", plugin_json["interface"]["displayName"])
+        self.assertIn("Memory", plugin_json["interface"]["capabilities"])
+
     def test_language_templates_use_suffix_labels(self):
         for suffix in ["py", "js", "ts"]:
             template = ASSETS / f"default-memory-cli-{suffix}"

@@ -1,0 +1,46 @@
+{
+  "name": "@pygent-ai/memory-cli",
+  "version": "0.1.0",
+  "description": "Codex skill for building tested local agent memory CLIs.",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Pygent AI",
+    "url": "https://github.com/pygent-ai"
+  },
+  "homepage": "https://github.com/pygent-ai/memory-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pygent-ai/memory-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pygent-ai/memory-cli/issues"
+  },
+  "keywords": [
+    "codex",
+    "codex-plugin",
+    "codex-skill",
+    "agent-skill",
+    "memory",
+    "retrieval",
+    "testing"
+  ],
+  "files": [
+    ".codex-plugin/",
+    "skills/",
+    "!skills/**/__pycache__/",
+    "!skills/**/*.py[cod]",
+    "docs/assets/",
+    "docs/memory-system-design.md",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "python -m unittest discover -s tests",
+    "pack:check": "npm pack --dry-run"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
