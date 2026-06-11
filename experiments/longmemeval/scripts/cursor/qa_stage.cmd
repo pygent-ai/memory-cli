@@ -8,11 +8,11 @@ if "%CASE_DIR%"=="" (
 )
 
 set "AGENT_COMMAND=%~2"
-if "%AGENT_COMMAND%"=="" set "AGENT_COMMAND=codex exec --skip-git-repo-check"
+if "%AGENT_COMMAND%"=="" set "AGENT_COMMAND=agent -p --trust --force"
 
 set "SCRIPT_DIR=%~dp0"
-set "ROOT_DIR=%SCRIPT_DIR%..\..\.."
-set "PROMPT_TEMPLATE=%ROOT_DIR%\experiments\longmemeval\prompts\answer_from_memory.md"
+for %%I in ("%SCRIPT_DIR%..\..\..\..") do set "ROOT_DIR=%%~fI\"
+set "PROMPT_TEMPLATE=%ROOT_DIR%experiments\longmemeval\prompts\answer_from_memory.md"
 set "WORK_DIR=%CASE_DIR%\work"
 set "INPUT_JSON=%WORK_DIR%\input\question_input.json"
 set "OUTPUT_DIR=%CASE_DIR%\outputs"
@@ -22,8 +22,9 @@ set "STDOUT_FILE=%LOG_DIR%\qa_stdout.txt"
 set "STDERR_FILE=%LOG_DIR%\qa_stderr.txt"
 set "RAW_JSON_FILE=%LOG_DIR%\qa_raw_agent_output.json"
 set "ANSWER_JSON=%OUTPUT_DIR%\answer.json"
-set "RENDER_PS1=%SCRIPT_DIR%qa_stage_render_prompt.ps1"
-set "WRITE_PS1=%SCRIPT_DIR%qa_stage_write_answer.ps1"
+set "RENDER_PS1=%ROOT_DIR%experiments\longmemeval\scripts\codex\qa_stage_render_prompt.ps1"
+set "WRITE_PS1=%ROOT_DIR%experiments\longmemeval\scripts\codex\qa_stage_write_answer.ps1"
+set "INVOKE_PS1=%SCRIPT_DIR%invoke_agent.ps1"
 
 if not exist "%INPUT_JSON%" (
   echo Missing question input: %INPUT_JSON%
@@ -36,14 +37,10 @@ if not exist "%LOG_DIR%" mkdir "%LOG_DIR%"
 powershell -NoProfile -ExecutionPolicy Bypass -File "%RENDER_PS1%"
 if errorlevel 1 exit /b %ERRORLEVEL%
 
-pushd "%WORK_DIR%" || exit /b 2
-set "PATH=%WORK_DIR%\.venv\Scripts;%PATH%"
-call %AGENT_COMMAND% < "%PROMPT_FILE%" > "%STDOUT_FILE%" 2> "%STDERR_FILE%"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%INVOKE_PS1%" -PromptFile "%PROMPT_FILE%" -WorkDir "%WORK_DIR%" -StdoutFile "%STDOUT_FILE%" -StderrFile "%STDERR_FILE%" -AgentCommand "%AGENT_COMMAND%"
 set "AGENT_EXIT=%ERRORLEVEL%"
-popd
-
 if not "%AGENT_EXIT%"=="0" (
-  echo QA agent failed with exit code %AGENT_EXIT%
+  echo Cursor QA agent failed with exit code %AGENT_EXIT%
   exit /b %AGENT_EXIT%
 )
 

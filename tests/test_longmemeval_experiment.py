@@ -3,11 +3,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiments.longmemeval.scripts.evaluate_run import evaluate_case
-from experiments.longmemeval.scripts.prepare_cases import prepare_cases
-from experiments.longmemeval.scripts.run_all import selected_case_ids
-from experiments.longmemeval.scripts.summarize_results import summarize
-from experiments.longmemeval.scripts.run_case import (
+from experiments.longmemeval.scripts.codex.evaluate_run import evaluate_case
+from experiments.longmemeval.scripts.codex.prepare_cases import prepare_cases
+from experiments.longmemeval.scripts.codex.run_all import selected_case_ids
+from experiments.longmemeval.scripts.codex.summarize_results import summarize
+from experiments.longmemeval.scripts.codex.run_case import (
     complete_retrieval_from_answer,
     copy_memory_input,
     copy_private_eval,
@@ -389,8 +389,8 @@ class LongMemEvalExperimentTest(unittest.TestCase):
         self.assertIn("source", prompt)
         self.assertNotIn("session_ids", prompt)
 
-    def test_windows_cmd_entrypoints_exist_for_experiment_scripts(self):
-        scripts = ROOT / "experiments" / "longmemeval" / "scripts"
+    def test_windows_cmd_entrypoints_exist_for_codex_experiment_scripts(self):
+        scripts = ROOT / "experiments" / "longmemeval" / "scripts" / "codex"
         python_wrappers = [
             "download_dataset",
             "prepare_cases",

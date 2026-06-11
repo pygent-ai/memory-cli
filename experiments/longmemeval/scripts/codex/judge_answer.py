@@ -6,7 +6,14 @@ import time
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[3]
+def find_project_root(start):
+    for parent in Path(start).resolve().parents:
+        if (parent / "skills" / "memory-cli").exists():
+            return parent
+    raise RuntimeError("Could not locate project root")
+
+
+ROOT = find_project_root(__file__)
 
 
 def read_json(path):

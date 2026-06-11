@@ -8,6 +8,23 @@ This repository provides an agent-oriented memory system skill. It teaches an ag
 
 The core idea is: memory is not just stored text; it is behavior that can be retrieved correctly later. Important memories enter the system with retrieval tests. Only when keywords and key phrases can find them again do they count as remembered.
 
+## Experiment Results
+
+LongMemEval oracle experiments are documented in
+`experiments/longmemeval/README.md`. Current snapshots are partial, not full
+500-case benchmark runs. Reported accuracy below is after manual or semantic
+review of answers that strict substring matching can miss.
+
+| Agent | Evaluated cases | Correct after review | Accuracy after review |
+|---|---:|---:|---:|
+| Codex | 291 / 500 | 276 | 94.85% |
+| Cursor | 83 / 500 | 68 | 81.93% |
+
+Strict substring scores were lower: Codex `186 / 291` (63.92%) and Cursor
+`62 / 83` (74.70%). See the
+[LongMemEval experiment README](experiments/longmemeval/README.md) for scope,
+charts, and result-file links.
+
 ## Skill Package
 
 `skills/memory-cli` is the core skill package in this repository. It contains the main skill instructions, three default project templates, reference documents, and an agent configuration example.
@@ -171,14 +188,3 @@ python -m unittest discover -s tests
 ```
 
 When changing template paths, README template descriptions, `package.json` bin configuration, or test scripts, update tests and documentation together.
-
-## LongMemEval Experiment Snapshot
-
-The current LongMemEval oracle snapshot is documented in
-`experiments/longmemeval/results/2026-06-05-current/RESULTS.md`.
-
-It combines the completed first-10 run with the stopped remaining-case run:
-291 of 500 oracle cases completed with metrics, 10 transient run failures were
-excluded for later rerun, and 199 cases were not completed. On completed cases,
-recall@5 is 0.9895, NDCG@5 is 0.9917, strict substring answer accuracy is
-0.5876, and answer accuracy after manual semantic review is 0.8582.

@@ -1,0 +1,163 @@
+{
+  "snapshot_name": "real-combined-291-latest",
+  "created_at": "2026-06-11T09:32:16",
+  "case_count": 291,
+  "source_counts": {
+    "rerun49-latest": 49,
+    "first10": 1,
+    "remaining490-stopped": 241
+  },
+  "selection_policy": "Use rerun49-latest when available for a case; otherwise use the original completed source from per_case_metrics.json.",
+  "overall": {
+    "recall_at_1": 0.6735,
+    "recall_at_5": 0.9931,
+    "recall_at_10": 0.9937,
+    "ndcg_at_5": 0.9952,
+    "ndcg_at_10": 0.9952,
+    "answer_substring_match": 0.6392,
+    "manual_answer_match": 0.8571,
+    "answer_correct": 0.9485,
+    "search_latency_ms_total": 441.7569,
+    "search_latency_ms_max": 121.8729,
+    "correct_count": 276,
+    "failed_count": 15,
+    "strict_correct_count": 186,
+    "manual_true_count": 90,
+    "manual_false_count": 15
+  },
+  "by_question_type": {
+    "knowledge-update": {
+      "recall_at_1": 0.5,
+      "recall_at_5": 0.9934,
+      "recall_at_10": 0.9934,
+      "ndcg_at_5": 0.9949,
+      "ndcg_at_10": 0.9949,
+      "answer_substring_match": 0.7368,
+      "manual_answer_match": 0.95,
+      "answer_correct": 0.9868,
+      "search_latency_ms_total": 317.7719,
+      "search_latency_ms_max": 94.4508
+    },
+    "multi-session": {
+      "recall_at_1": 0.3496,
+      "recall_at_5": 0.9744,
+      "recall_at_10": 0.9744,
+      "ndcg_at_5": 0.9804,
+      "ndcg_at_10": 0.9804,
+      "answer_substring_match": 0.641,
+      "manual_answer_match": 0.7857,
+      "answer_correct": 0.9231,
+      "search_latency_ms_total": 608.753,
+      "search_latency_ms_max": 109.3666
+    },
+    "single-session-assistant": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "answer_substring_match": 0.6078,
+      "manual_answer_match": 0.6,
+      "answer_correct": 0.8431,
+      "search_latency_ms_total": 463.7447,
+      "search_latency_ms_max": 158.2526
+    },
+    "single-session-preference": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "answer_substring_match": 0.0,
+      "manual_answer_match": 0.9,
+      "answer_correct": 0.9,
+      "search_latency_ms_total": 452.6617,
+      "search_latency_ms_max": 103.8743
+    },
+    "single-session-user": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "ndcg_at_5": 1.0,
+      "ndcg_at_10": 1.0,
+      "answer_substring_match": 0.8571,
+      "manual_answer_match": 1.0,
+      "answer_correct": 1.0,
+      "search_latency_ms_total": 458.04,
+      "search_latency_ms_max": 148.796
+    },
+    "temporal-reasoning": {
+      "recall_at_1": 0.4728,
+      "recall_at_5": 0.9917,
+      "recall_at_10": 0.9944,
+      "ndcg_at_5": 0.9961,
+      "ndcg_at_10": 0.9961,
+      "answer_substring_match": 0.7333,
+      "manual_answer_match": 1.0,
+      "answer_correct": 1.0,
+      "search_latency_ms_total": 456.6165,
+      "search_latency_ms_max": 127.1083
+    }
+  },
+  "by_question_type_counts": {
+    "knowledge-update": {
+      "case_count": 76,
+      "correct_count": 75,
+      "strict_correct_count": 56,
+      "manual_true_count": 19,
+      "manual_false_count": 1
+    },
+    "multi-session": {
+      "case_count": 39,
+      "correct_count": 36,
+      "strict_correct_count": 25,
+      "manual_true_count": 11,
+      "manual_false_count": 3
+    },
+    "single-session-assistant": {
+      "case_count": 51,
+      "correct_count": 43,
+      "strict_correct_count": 31,
+      "manual_true_count": 12,
+      "manual_false_count": 8
+    },
+    "single-session-preference": {
+      "case_count": 30,
+      "correct_count": 27,
+      "strict_correct_count": 0,
+      "manual_true_count": 27,
+      "manual_false_count": 3
+    },
+    "single-session-user": {
+      "case_count": 35,
+      "correct_count": 35,
+      "strict_correct_count": 30,
+      "manual_true_count": 5,
+      "manual_false_count": 0
+    },
+    "temporal-reasoning": {
+      "case_count": 60,
+      "correct_count": 60,
+      "strict_correct_count": 44,
+      "manual_true_count": 16,
+      "manual_false_count": 0
+    }
+  },
+  "failed_case_ids": [
+    "031748ae_abs",
+    "09d032c9",
+    "0edc2aef",
+    "1b9b7252",
+    "1d4da289",
+    "35a27287",
+    "51b23612",
+    "58470ed2",
+    "7024f17c",
+    "778164c6",
+    "8aef76bc",
+    "eaca4986",
+    "fca762bc",
+    "gpt4_15e38248",
+    "gpt4_7fce9456"
+  ]
+}

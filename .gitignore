@@ -10,3 +10,4 @@ build/
 datasets/longmemeval/raw/*.json
 datasets/longmemeval/processed/
 experiments/longmemeval/runs/
+experiments/longmemeval/runs-cursor/
