@@ -8,6 +8,14 @@ This repository provides an agent-oriented memory system skill. It teaches an ag
 
 The core idea is: memory is not just stored text; it is behavior that can be retrieved correctly later. Important memories enter the system with retrieval tests. Only when keywords and key phrases can find them again do they count as remembered.
 
+## Installation
+
+Install the skill with:
+
+```bash
+gh skill install pygent-ai/memory-cli
+```
+
 ## Experiment Results
 
 LongMemEval oracle experiments are documented in
