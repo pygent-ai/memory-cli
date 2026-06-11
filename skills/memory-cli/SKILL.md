@@ -1,6 +1,7 @@
 ---
 name: memory-cli
 description: Build, query, test, and optimize a local agent memory CLI where durable memories are represented as retrieval unit tests. Use when the user asks Codex to create, maintain, inspect, or improve a memory-cli project; when a workspace already contains a memory-cli, .memory, or memories project; or when Codex must add, update, retire, or validate durable memory records through a CLI contract.
+license: Apache-2.0
 ---
 
 # Memory CLI
