@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from experiments.longmemeval.scripts.codex.evaluate_run import evaluate_case
+from experiments.longmemeval.scripts.codex.judge_answer import substring_label
 from experiments.longmemeval.scripts.codex.prepare_cases import prepare_cases
 from experiments.longmemeval.scripts.codex.run_all import selected_case_ids
 from experiments.longmemeval.scripts.codex.summarize_results import summarize
@@ -16,6 +17,7 @@ from experiments.longmemeval.scripts.codex.run_case import (
     prepare_qa_input,
     normalize_answer_output,
     render_answer_prompt,
+    qa_stage_cmd_path,
 )
 
 
@@ -270,6 +272,33 @@ class LongMemEvalExperimentTest(unittest.TestCase):
             self.assertTrue(metrics["manual_answer_match"])
             self.assertTrue(metrics["answer_correct"])
 
+    def test_evaluate_case_handles_numeric_reference_answers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            case_dir = Path(tmp) / "case-1"
+            self.write_json(
+                case_dir / "private_eval_ref.json",
+                {
+                    "question_id": "case-1",
+                    "question_type": "single-session-user",
+                    "answer": 12,
+                    "answer_session_ids": ["session_0001"],
+                    "is_abstention": False,
+                },
+            )
+            self.write_json(case_dir / "outputs" / "answer.json", {"answer": "12"})
+            self.write_json(
+                case_dir / "outputs" / "retrieval.json",
+                {"queries": [{"latency_ms": 1, "matches": [{"id": "session_0001"}]}]},
+            )
+
+            metrics = evaluate_case(case_dir)
+
+            self.assertTrue(metrics["answer_substring_match"])
+            self.assertTrue(metrics["answer_correct"])
+
+    def test_mock_judge_handles_numeric_reference_answers(self):
+        self.assertEqual("correct", substring_label(12, "12"))
+
     def test_summarize_uses_answer_correct_without_losing_substring_rate(self):
         with tempfile.TemporaryDirectory() as tmp:
             run_dir = Path(tmp) / "run"
@@ -416,6 +445,11 @@ class LongMemEvalExperimentTest(unittest.TestCase):
         self.assertIn("-Encoding UTF8", write_text)
         self.assertIn("UTF8Encoding]::new($false)", render_text)
         self.assertIn("UTF8Encoding]::new($false)", write_text)
+
+    def test_run_case_uses_codex_qa_stage_cmd(self):
+        expected = ROOT / "experiments" / "longmemeval" / "scripts" / "codex" / "qa_stage.cmd"
+        self.assertEqual(expected, qa_stage_cmd_path())
+        self.assertTrue(qa_stage_cmd_path().is_file())
 
     def test_selected_case_ids_rejects_unknown_ids(self):
         with tempfile.TemporaryDirectory() as tmp:

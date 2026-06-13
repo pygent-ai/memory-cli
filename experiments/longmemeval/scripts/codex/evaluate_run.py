@@ -66,8 +66,8 @@ def flatten_retrieval_ids(retrieval):
 
 
 def answer_matches(reference, hypothesis):
-    reference = (reference or "").strip().lower()
-    hypothesis = (hypothesis or "").strip().lower()
+    reference = "" if reference is None else str(reference).strip().lower()
+    hypothesis = "" if hypothesis is None else str(hypothesis).strip().lower()
     if not reference or not hypothesis:
         return False
     return reference in hypothesis or hypothesis in reference

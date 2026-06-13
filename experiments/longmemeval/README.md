@@ -9,20 +9,19 @@ scripts may see the reference answer and evidence labels.
 
 ## Experiment Results
 
-These are partial LongMemEval oracle snapshots, not a completed 500-case
-benchmark. The main accuracy numbers below are after manual or semantic review
-of answers that strict substring matching can miss. The denominator in the
-accuracy columns is the number of evaluated cases with metrics, not all 500
-oracle cases.
+These are LongMemEval oracle snapshots. Codex has a completed 500-case result;
+Cursor remains an interim partial snapshot. The main accuracy numbers below are
+after manual or semantic review of answers that strict substring matching can
+miss.
 
 | Agent / snapshot | Evaluated cases | Correct after review | Incorrect after review | Reviewed accuracy | Dataset coverage |
 |---|---:|---:|---:|---:|---:|
-| Codex: `real-combined-291-latest` | 291 / 500 | 276 | 15 | 94.85% | 58.20% |
+| Codex: `codex-oracle-500-latest` | 500 / 500 | 468 | 32 | 93.60% | 100.00% |
 | Cursor: `cursor-oracle-500-qa83` | 83 / 500 | 68 | 15 | 81.93% | 16.60% |
 
-Codex's raw strict substring score is 186 / 291 (63.92%). Manual review accepted
-90 additional semantically correct answers and rejected 15, giving 276 / 291
-(94.85%).
+Codex's raw strict substring score is 336 / 500 (67.20%). Manual review accepted
+132 additional semantically correct answers and rejected 32, giving 468 / 500
+(93.60%).
 
 Cursor's raw strict substring score is 62 / 83 (74.70%). Review accepted 6
 additional semantic-equivalent temporal reasoning answers, giving 68 / 83
@@ -32,15 +31,14 @@ additional semantic-equivalent temporal reasoning answers, giving 68 / 83
 xychart-beta
     title "Correct and Incorrect Answers After Review"
     x-axis ["Codex correct", "Codex incorrect", "Cursor correct", "Cursor incorrect"]
-    y-axis "Cases" 0 --> 300
-    bar [276, 15, 68, 15]
+    y-axis "Cases" 0 --> 500
+    bar [468, 32, 68, 15]
 ```
 
 ```mermaid
-pie title Codex oracle snapshot: 276 correct out of 291 evaluated after review
-    "Correct after review" : 276
-    "Incorrect after review" : 15
-    "Not evaluated in this snapshot" : 209
+pie title Codex oracle snapshot: 468 correct out of 500 evaluated after review
+    "Correct after review" : 468
+    "Incorrect after review" : 32
 ```
 
 ```mermaid
@@ -53,12 +51,12 @@ pie title Cursor oracle snapshot: 68 correct out of 83 evaluated after review
 ### Result Details
 
 - Codex details:
-  `experiments/longmemeval/results/real-combined-291-latest/RESULTS.md`
+  `experiments/longmemeval/results/codex-oracle-500-latest/RESULTS.md`
 - Cursor details:
   `experiments/longmemeval/results/cursor-oracle-500-qa83/RESULTS.md`
 - Cursor is an interim snapshot from `cursor-oracle-500-parallel`; only cases
   with completed QA and `outputs/metrics.json` are included.
-- Codex review adjustment: 186 strict substring matches plus 90 manually
+- Codex review adjustment: 336 strict substring matches plus 132 manually
   accepted answers.
 - Cursor review adjustment: 62 strict substring matches plus 6 semantically
   equivalent answers accepted after review.

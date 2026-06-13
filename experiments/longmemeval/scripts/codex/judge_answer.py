@@ -26,8 +26,8 @@ def write_json(path, data):
 
 
 def substring_label(reference, hypothesis):
-    reference = (reference or "").strip().lower()
-    hypothesis = (hypothesis or "").strip().lower()
+    reference = "" if reference is None else str(reference).strip().lower()
+    hypothesis = "" if hypothesis is None else str(hypothesis).strip().lower()
     if not hypothesis:
         return "unknown"
     if reference and (reference in hypothesis or hypothesis in reference):

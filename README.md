@@ -28,16 +28,15 @@ and the reusable skill under `skills/memory-cli`.
 ## Experiment Results
 
 LongMemEval oracle experiments are documented in
-`experiments/longmemeval/README.md`. Current snapshots are partial, not full
-500-case benchmark runs. Reported accuracy below is after manual or semantic
-review of answers that strict substring matching can miss.
+`experiments/longmemeval/README.md`. Reported accuracy below is after manual or
+semantic review of answers that strict substring matching can miss.
 
 | Agent | Evaluated cases | Correct after review | Accuracy after review |
 |---|---:|---:|---:|
-| Codex | 291 / 500 | 276 | 94.85% |
+| Codex | 500 / 500 | 468 | 93.60% |
 | Cursor | 83 / 500 | 68 | 81.93% |
 
-Strict substring scores were lower: Codex `186 / 291` (63.92%) and Cursor
+Strict substring scores were lower: Codex `336 / 500` (67.20%) and Cursor
 `62 / 83` (74.70%). See the
 [LongMemEval experiment README](experiments/longmemeval/README.md) for scope,
 charts, and result-file links.

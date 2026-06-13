@@ -296,7 +296,7 @@ def run_real_agent(work_dir, agent_command, prompt_path, log_path, timeout_secon
 def run_qa_stage_cmd(case_dir, agent_command, timeout_seconds):
     case_dir = Path(case_dir).resolve()
     command = [
-        str(ROOT / "experiments" / "longmemeval" / "scripts" / "qa_stage.cmd"),
+        str(qa_stage_cmd_path()),
         str(case_dir),
         agent_command,
     ]
@@ -320,6 +320,10 @@ def run_qa_stage_cmd(case_dir, agent_command, timeout_seconds):
     )
     if completed.returncode != 0:
         raise RuntimeError(f"QA stage cmd failed: {case_dir}")
+
+
+def qa_stage_cmd_path():
+    return ROOT / "experiments" / "longmemeval" / "scripts" / "codex" / "qa_stage.cmd"
 
 
 def run_case(
