@@ -1,0 +1,2211 @@
+{
+  "01493427": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "031748ae": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "031748ae_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "06878be2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "06db6396": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "06f04340": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "07741c44": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "07741c45": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "07b6f563": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0862e8bf": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "08e075c7": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "08f4fc43": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0977f2af": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "09d032c9": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0a34ad58": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0bb5a684": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0ddfec37": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0ddfec37_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0e4e4c46": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0e5e2d1a": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "0edc2aef": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "10d9b85a": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "10e09553": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "118b2229": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "129d1232": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "16c90bf4": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "184da446": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "18bc8abd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "18dcd5a5": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1903aded": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "195a1a1b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1a1907b4": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1b9b7252": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1c0ddc50": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1cea1afa": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1d4da289": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1d4e3b97": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1da05512": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1de5cff2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "1e043500": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2133c1b5": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2133c1b5_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "21436231": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "22d2cb42": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2318644b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "25e5aa4f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2698e78f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2698e78f_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "26bdc477": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "28bcfaac": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "28dc39ac": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2a1811e2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2b8f3739": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2bf43736": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "2c63a862": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "32260d93": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "3249768e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "352ab8bd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "35a27287": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "36b9f61e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "37d43f65": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "38146c39": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "3b6f954b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "3ba21379": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "41275add": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "41698283": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "42ec0761": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "4388e9dd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "45dc21b6": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "488d3006": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "4b24c848": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "4baee567": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "4c36ccef": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "4d6b87c8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "505af2f5": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "50635ada": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "51a45a95": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "51b23612": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "54026fce": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "561fabcd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "57f827a0": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5809eb10": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5831f84d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "58470ed2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "58bf7951": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "58ef2f1c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "59524333": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5a4f22c0": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5a7937c8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5c40ec5b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "5d3d2817": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "603deb26": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6071bd76": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "60bf93ed": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "60bf93ed_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "618f13b2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6222b6eb": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "65240037": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6613b389": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "66f24dbb": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "69fee5aa": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6a1eabeb": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6a27ffc2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6ade9755": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6ae235be": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6aeb4375": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6aeb4375_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6b168ec8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6b7dfb22": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6cb6f249": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "6f9b354f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7024f17c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "70b3e69b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "71315a70": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7161e7e2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "71a3fd6b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "726462e0": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "72e3ee87": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7401057b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7527f7e2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "75499fd8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "75832dbd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "75f70248": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "778164c6": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7a87bd0c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7a8d0b71": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "7e974930": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "80ec1f4f_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "830ce83f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8464fc84": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "852ce960": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "853b0a1d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8550ddae": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8752c811": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "88432d0a_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "89527b6b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "89941a93": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "89941a94": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8a2466db": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8aef76bc": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8b9d4367": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8c18457d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8cf51dda": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8ebdbe50": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "8fb83627": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "945e3d21": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "94f70d80": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "95228167": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "95bcc1c8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "982b5123": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "982b5123_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "993da5e2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "9bbe84a2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "9ea5eabc": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a06e4cfe": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a1eacc2a": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a3045048": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a3838d2b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a40e080f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "a89d7624": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "aae3761f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ac031881": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ad7109d1": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "af8d2e46": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "afdc33df": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "affe2881": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b01defab": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b0479f84": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b29f3365": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b3c15d39": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b5ef892d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b6019101": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b6025781": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b759caee": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b86304ba": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "b9cfe692": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ba61f0b9": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "bbf86515": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c4ea545c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c4f10528": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c5e8278d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c6853660": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c7cf7dfd": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c7dc5443": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c8090214": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c8090214_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c8c3f81d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c8f1aeed": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c960da58": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "c9f37c46": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "caf03d32": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "caf9ead2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "cc539528": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "cc5ded98": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "cc6d1ec1": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ce6d2d27": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ceb54acb": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "cf22b7bf": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d01c6aa8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d24813b1": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d52b4f67": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d596882b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d6233ab6": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d7c942c3": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "d851d5ba": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dad224aa": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "db467c8c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dc439ea3": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dccbc061": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dcfa8644": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dd2973ad": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "dfde3500": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e3fc4d6e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e47becba": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e48988bc": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e493bb7c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e4e14d04": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e61a7584": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e66b632c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e831120c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e8a79c70": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "e982271f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "eaca4986": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "eace081b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "ed4ddc30": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "edced276": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "edced276_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "eeda8a6d_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "f0853d11": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "f685340e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "f685340e_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "f8c5f88b": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "f9e8c073": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "fca70973": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "fca762bc": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "fea54f57": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_0a05b494": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_0b2f1d21": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_15e38248": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_1a1dc16d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_213fd887": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2312f94c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2487a7cb": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2655b836": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2ba83207": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2c50253f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2d58bcd6": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2f56ae70": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2f584639": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2f8be40d": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_2f91af09": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_31ff4165": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_372c3eed": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_372c3eed_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_385a5000": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_483dd43c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_4cd9eba1": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_4edbafa2": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_5438fa52": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_5501fe77": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_59c863d7": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_5dcc0aab": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_65aabe59": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_6ed717ea": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_70e84552": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_70e84552_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_731e37d7": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_76048e76": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_78cf46a3": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_7de946e7": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_7fce9456": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_88806d6e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_8c8961ae": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_93159ced": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_93159ced_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_93f6379c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_9a159967": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_a56e767c": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_ab202e7f": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_b4a80587": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_c27434e8": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_c27434e8_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_cd90e484": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_d12ceb0e": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_d31cdae3": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_d84a3211": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_d9af6064": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_e05b82a6": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_f2262a51": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_fe651585": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "gpt4_fe651585_abs": {
+    "snapshot": "real-combined-291-latest",
+    "result_dir": "experiments/longmemeval/results/real-combined-291-latest"
+  },
+  "001be529": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/001be529"
+  },
+  "00ca467f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/00ca467f"
+  },
+  "0100672e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0100672e"
+  },
+  "078150f1": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/078150f1"
+  },
+  "0862e8bf_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0862e8bf_abs"
+  },
+  "099778bb": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/099778bb"
+  },
+  "09ba9854": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/09ba9854"
+  },
+  "09ba9854_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/09ba9854_abs"
+  },
+  "0a995998": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0a995998"
+  },
+  "0bc8ad92": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0bc8ad92"
+  },
+  "0bc8ad93": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0bc8ad93"
+  },
+  "0db4c65d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0db4c65d"
+  },
+  "0ea62687": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0ea62687"
+  },
+  "0f05491a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/0f05491a"
+  },
+  "1192316e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1192316e"
+  },
+  "1568498a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1568498a"
+  },
+  "15745da0": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/15745da0"
+  },
+  "15745da0_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/15745da0_abs"
+  },
+  "157a136e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/157a136e"
+  },
+  "19b5f2b3": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/19b5f2b3"
+  },
+  "19b5f2b3_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/19b5f2b3_abs"
+  },
+  "1a8a66a6": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1a8a66a6"
+  },
+  "1c549ce4": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1c549ce4"
+  },
+  "1f2b8d4f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1f2b8d4f"
+  },
+  "1faac195": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/1faac195"
+  },
+  "21d02d0d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/21d02d0d"
+  },
+  "2311e44b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2311e44b"
+  },
+  "2311e44b_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2311e44b_abs"
+  },
+  "27016adc": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/27016adc"
+  },
+  "2788b940": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2788b940"
+  },
+  "29f2956b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/29f2956b"
+  },
+  "29f2956b_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/29f2956b_abs"
+  },
+  "2ce6a0f2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2ce6a0f2"
+  },
+  "2e6d26dc": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2e6d26dc"
+  },
+  "2ebe6c90": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2ebe6c90"
+  },
+  "2ebe6c92": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/2ebe6c92"
+  },
+  "311778f1": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/311778f1"
+  },
+  "36580ce8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/36580ce8"
+  },
+  "370a8ff4": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/370a8ff4"
+  },
+  "37f165cf": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/37f165cf"
+  },
+  "3a704032": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3a704032"
+  },
+  "3c1045c8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3c1045c8"
+  },
+  "3d86fd0a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3d86fd0a"
+  },
+  "3e321797": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3e321797"
+  },
+  "3f1e9474": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3f1e9474"
+  },
+  "3fdac837": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3fdac837"
+  },
+  "3fe836c9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/3fe836c9"
+  },
+  "4100d0a0": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4100d0a0"
+  },
+  "46a3abf7": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/46a3abf7"
+  },
+  "4adc0475": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4adc0475"
+  },
+  "4bc144e2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4bc144e2"
+  },
+  "4dfccbf7": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4dfccbf7"
+  },
+  "4dfccbf8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4dfccbf8"
+  },
+  "4f54b7c9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4f54b7c9"
+  },
+  "4fd1909e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/4fd1909e"
+  },
+  "5025383b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/5025383b"
+  },
+  "51c32626": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/51c32626"
+  },
+  "545bd2b5": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/545bd2b5"
+  },
+  "55241a1f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/55241a1f"
+  },
+  "577d4d32": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/577d4d32"
+  },
+  "5e1b23de": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/5e1b23de"
+  },
+  "60036106": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/60036106"
+  },
+  "60159905": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/60159905"
+  },
+  "60472f9c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/60472f9c"
+  },
+  "60d45044": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/60d45044"
+  },
+  "61f8c8f8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/61f8c8f8"
+  },
+  "6456829e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6456829e"
+  },
+  "6456829e_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6456829e_abs"
+  },
+  "67e0d0f2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/67e0d0f2"
+  },
+  "681a1674": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/681a1674"
+  },
+  "6c49646a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6c49646a"
+  },
+  "6d550036": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6d550036"
+  },
+  "6e984301": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6e984301"
+  },
+  "6e984302": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/6e984302"
+  },
+  "71017276": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/71017276"
+  },
+  "71017277": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/71017277"
+  },
+  "720133ac": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/720133ac"
+  },
+  "73d42213": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/73d42213"
+  },
+  "7405e8b1": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/7405e8b1"
+  },
+  "76d63226": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/76d63226"
+  },
+  "77eafa52": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/77eafa52"
+  },
+  "7e00a6cb": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/7e00a6cb"
+  },
+  "8077ef71": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8077ef71"
+  },
+  "80ec1f4f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/80ec1f4f"
+  },
+  "81507db6": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/81507db6"
+  },
+  "85fa3a3f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/85fa3a3f"
+  },
+  "86b68151": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/86b68151"
+  },
+  "86f00804": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/86f00804"
+  },
+  "87f22b4a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/87f22b4a"
+  },
+  "88432d0a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/88432d0a"
+  },
+  "8979f9ec": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8979f9ec"
+  },
+  "8a137a7f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8a137a7f"
+  },
+  "8cf4d046": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8cf4d046"
+  },
+  "8e91e7d9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8e91e7d9"
+  },
+  "8e9d538c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/8e9d538c"
+  },
+  "91b15a6e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/91b15a6e"
+  },
+  "92a0aa75": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/92a0aa75"
+  },
+  "9a707b81": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/9a707b81"
+  },
+  "9a707b82": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/9a707b82"
+  },
+  "9aaed6a3": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/9aaed6a3"
+  },
+  "9d25d4e0": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/9d25d4e0"
+  },
+  "9ee3ecd6": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/9ee3ecd6"
+  },
+  "a08a253f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a08a253f"
+  },
+  "a11281a2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a11281a2"
+  },
+  "a1cc6108": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a1cc6108"
+  },
+  "a2f3aa27": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a2f3aa27"
+  },
+  "a3332713": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a3332713"
+  },
+  "a346bb18": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a346bb18"
+  },
+  "a4996e51": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a4996e51"
+  },
+  "a82c026e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a82c026e"
+  },
+  "a96c20ee": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a96c20ee"
+  },
+  "a96c20ee_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a96c20ee_abs"
+  },
+  "a9f6b44c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/a9f6b44c"
+  },
+  "af082822": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/af082822"
+  },
+  "b320f3f8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/b320f3f8"
+  },
+  "b46e15ed": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/b46e15ed"
+  },
+  "b46e15ee": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/b46e15ee"
+  },
+  "ba358f49": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ba358f49"
+  },
+  "ba358f49_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ba358f49_abs"
+  },
+  "bb7c3b45": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bb7c3b45"
+  },
+  "bc149d6b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bc149d6b"
+  },
+  "bc8a6e93": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bc8a6e93"
+  },
+  "bc8a6e93_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bc8a6e93_abs"
+  },
+  "bcbe585f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bcbe585f"
+  },
+  "bf659f65": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/bf659f65"
+  },
+  "c14c00dd": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/c14c00dd"
+  },
+  "c18a7dc8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/c18a7dc8"
+  },
+  "c19f7a0b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/c19f7a0b"
+  },
+  "c2ac3c61": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/c2ac3c61"
+  },
+  "c4a1ceb8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/c4a1ceb8"
+  },
+  "cc06de0d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/cc06de0d"
+  },
+  "ccb36322": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ccb36322"
+  },
+  "d23cf73b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/d23cf73b"
+  },
+  "d3ab962e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/d3ab962e"
+  },
+  "d6062bb9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/d6062bb9"
+  },
+  "d682f1a2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/d682f1a2"
+  },
+  "d905b33f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/d905b33f"
+  },
+  "e01b8e2f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e01b8e2f"
+  },
+  "e25c3b8d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e25c3b8d"
+  },
+  "e3038f8c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e3038f8c"
+  },
+  "e56a43b9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e56a43b9"
+  },
+  "e5ba910e_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e5ba910e_abs"
+  },
+  "e6041065": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e6041065"
+  },
+  "e9327a54": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/e9327a54"
+  },
+  "eac54adc": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/eac54adc"
+  },
+  "eac54add": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/eac54add"
+  },
+  "ec81a493": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ec81a493"
+  },
+  "eeda8a6d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/eeda8a6d"
+  },
+  "ef66a6e5": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ef66a6e5"
+  },
+  "ef9cf60a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/ef9cf60a"
+  },
+  "efc3f7c2": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/efc3f7c2"
+  },
+  "f0e564bc": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/f0e564bc"
+  },
+  "f35224e0": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/f35224e0"
+  },
+  "f4f1d8a4": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/f4f1d8a4"
+  },
+  "f4f1d8a4_abs": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/f4f1d8a4_abs"
+  },
+  "f523d9fe": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/f523d9fe"
+  },
+  "faba32e5": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/faba32e5"
+  },
+  "gpt4_18c2b244": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_18c2b244"
+  },
+  "gpt4_1916e0ea": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_1916e0ea"
+  },
+  "gpt4_194be4b3": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_194be4b3"
+  },
+  "gpt4_1d4ab0c9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_1d4ab0c9"
+  },
+  "gpt4_1d80365e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_1d80365e"
+  },
+  "gpt4_1e4a8aeb": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_1e4a8aeb"
+  },
+  "gpt4_1e4a8aec": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_1e4a8aec"
+  },
+  "gpt4_21adecb5": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_21adecb5"
+  },
+  "gpt4_45189cb4": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_45189cb4"
+  },
+  "gpt4_468eb063": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_468eb063"
+  },
+  "gpt4_468eb064": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_468eb064"
+  },
+  "gpt4_4929293a": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_4929293a"
+  },
+  "gpt4_4929293b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_4929293b"
+  },
+  "gpt4_4ef30696": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_4ef30696"
+  },
+  "gpt4_4fc4f797": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_4fc4f797"
+  },
+  "gpt4_59149c77": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_59149c77"
+  },
+  "gpt4_59149c78": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_59149c78"
+  },
+  "gpt4_61e13b3c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_61e13b3c"
+  },
+  "gpt4_68e94287": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_68e94287"
+  },
+  "gpt4_68e94288": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_68e94288"
+  },
+  "gpt4_6dc9b45b": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_6dc9b45b"
+  },
+  "gpt4_74aed68e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_74aed68e"
+  },
+  "gpt4_7a0daae1": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7a0daae1"
+  },
+  "gpt4_7abb270c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7abb270c"
+  },
+  "gpt4_7bc6cf22": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7bc6cf22"
+  },
+  "gpt4_7ca326fa": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7ca326fa"
+  },
+  "gpt4_7ddcf75f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7ddcf75f"
+  },
+  "gpt4_7f6b06db": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_7f6b06db"
+  },
+  "gpt4_8279ba02": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_8279ba02"
+  },
+  "gpt4_8279ba03": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_8279ba03"
+  },
+  "gpt4_85da3956": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_85da3956"
+  },
+  "gpt4_8e165409": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_8e165409"
+  },
+  "gpt4_98f46fc6": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_98f46fc6"
+  },
+  "gpt4_a1b77f9c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_a1b77f9c"
+  },
+  "gpt4_a2d1d1f6": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_a2d1d1f6"
+  },
+  "gpt4_af6db32f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_af6db32f"
+  },
+  "gpt4_b0863698": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_b0863698"
+  },
+  "gpt4_b5700ca0": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_b5700ca0"
+  },
+  "gpt4_b5700ca9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_b5700ca9"
+  },
+  "gpt4_d6585ce8": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_d6585ce8"
+  },
+  "gpt4_d6585ce9": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_d6585ce9"
+  },
+  "gpt4_e061b84f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_e061b84f"
+  },
+  "gpt4_e061b84g": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_e061b84g"
+  },
+  "gpt4_e072b769": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_e072b769"
+  },
+  "gpt4_e414231e": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_e414231e"
+  },
+  "gpt4_e414231f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_e414231f"
+  },
+  "gpt4_ec93e27f": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_ec93e27f"
+  },
+  "gpt4_f420262c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_f420262c"
+  },
+  "gpt4_f420262d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_f420262d"
+  },
+  "gpt4_f49edff3": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_f49edff3"
+  },
+  "gpt4_fa19884c": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_fa19884c"
+  },
+  "gpt4_fa19884d": {
+    "run_id": "codex-remaining-209-bg",
+    "run_dir": "experiments/longmemeval/runs/codex-remaining-209-bg",
+    "case_dir": "experiments/longmemeval/runs/codex-remaining-209-bg/cases/gpt4_fa19884d"
+  }
+}

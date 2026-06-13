@@ -39,10 +39,10 @@ This directory contains an interim unified result set for Cursor Agent runs on L
 
 ## Metrics By Question Type
 
-| Question type | Cases | Correct after review | Accuracy after review | recall@5 | Strict correct |
-|---|---:|---:|---:|---:|---:|
-| multi-session | 24 | 17 | 0.7083 | 0.5417 | 17 |
-| temporal-reasoning | 59 | 51 | 0.8644 | 0.7966 | 45 |
+| Question type | Cases | Correct | Accuracy | recall@1 | recall@5 | recall@10 | ndcg@5 | ndcg@10 | Strict correct |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| multi-session | 24 | 17 | 0.7083 | 0.1854 | 0.5417 | 0.5417 | 0.5417 | 0.5417 | 17 |
+| temporal-reasoning | 59 | 45 | 0.7627 | 0.3847 | 0.7966 | 0.7966 | 0.7966 | 0.7966 | 45 |
 
 ## Notes
 

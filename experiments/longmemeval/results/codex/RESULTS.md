@@ -1,4 +1,4 @@
-# LongMemEval Codex Oracle 500 Results
+# LongMemEval Codex Results
 
 This directory contains the unified Codex result set for all 500 LongMemEval oracle cases.
 

@@ -16,7 +16,7 @@ miss.
 
 | Agent / snapshot | Evaluated cases | Correct after review | Incorrect after review | Reviewed accuracy | Dataset coverage |
 |---|---:|---:|---:|---:|---:|
-| Codex: `codex-oracle-500-latest` | 500 / 500 | 468 | 32 | 93.60% | 100.00% |
+| Codex: `codex` | 500 / 500 | 468 | 32 | 93.60% | 100.00% |
 | Cursor: `cursor-oracle-500-qa83` | 83 / 500 | 68 | 15 | 81.93% | 16.60% |
 
 Codex's raw strict substring score is 336 / 500 (67.20%). Manual review accepted
@@ -51,7 +51,7 @@ pie title Cursor oracle snapshot: 68 correct out of 83 evaluated after review
 ### Result Details
 
 - Codex details:
-  `experiments/longmemeval/results/codex-oracle-500-latest/RESULTS.md`
+  `experiments/longmemeval/results/codex/RESULTS.md`
 - Cursor details:
   `experiments/longmemeval/results/cursor-oracle-500-qa83/RESULTS.md`
 - Cursor is an interim snapshot from `cursor-oracle-500-parallel`; only cases

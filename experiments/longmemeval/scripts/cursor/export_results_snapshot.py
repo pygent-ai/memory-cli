@@ -189,14 +189,16 @@ def write_results_md(out_dir: Path, combined: dict) -> None:
         "",
         "## Metrics By Question Type",
         "",
-        "| Question type | Cases | Correct | Accuracy | recall@5 | Strict correct |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Question type | Cases | Correct | Accuracy | recall@1 | recall@5 | recall@10 | ndcg@5 | ndcg@10 | Strict correct |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for question_type, counts in combined["by_question_type_counts"].items():
         metrics = combined["by_question_type"][question_type]
         lines.append(
             f"| {question_type} | {counts['case_count']} | {counts['correct_count']} | "
-            f"{metrics['answer_correct']:.4f} | {metrics['recall_at_5']:.4f} | "
+            f"{metrics['answer_correct']:.4f} | {metrics['recall_at_1']:.4f} | "
+            f"{metrics['recall_at_5']:.4f} | {metrics['recall_at_10']:.4f} | "
+            f"{metrics['ndcg_at_5']:.4f} | {metrics['ndcg_at_10']:.4f} | "
             f"{counts['strict_correct_count']} |"
         )
     lines.extend(

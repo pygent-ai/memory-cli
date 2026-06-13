@@ -19,6 +19,7 @@ from experiments.longmemeval.scripts.codex.run_case import (
     render_answer_prompt,
     qa_stage_cmd_path,
 )
+from experiments.longmemeval.scripts.cursor.export_results_snapshot import write_results_md
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -340,6 +341,64 @@ class LongMemEvalExperimentTest(unittest.TestCase):
             self.assertEqual(0.5, summary["overall"]["answer_substring_match"])
             self.assertEqual(1.0, summary["overall"]["answer_correct"])
             self.assertEqual(1.0, summary["overall"]["manual_answer_match"])
+
+    def test_results_markdown_includes_all_retrieval_metrics_by_question_type(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out_dir = Path(tmp)
+            combined = {
+                "case_count": 1,
+                "target_case_count": 1,
+                "run_id": "run-1",
+                "run_dir": "experiments/longmemeval/runs-cursor/run-1",
+                "snapshot_name": "snapshot-1",
+                "created_at": "2026-06-13T00:00:00",
+                "overall": {
+                    "recall_at_1": 1.0,
+                    "recall_at_5": 1.0,
+                    "recall_at_10": 1.0,
+                    "ndcg_at_5": 1.0,
+                    "ndcg_at_10": 1.0,
+                    "answer_substring_match": 1.0,
+                    "answer_correct": 1.0,
+                    "strict_correct_count": 1,
+                    "correct_count": 1,
+                    "failed_count": 0,
+                    "search_latency_ms_total": 10.0,
+                    "search_latency_ms_max": 10.0,
+                },
+                "qa_accuracy": {"semantic_accuracy": 1.0, "semantic_correct": 1},
+                "by_question_type_counts": {
+                    "single-session-user": {
+                        "case_count": 1,
+                        "correct_count": 1,
+                        "strict_correct_count": 1,
+                    }
+                },
+                "by_question_type": {
+                    "single-session-user": {
+                        "answer_correct": 1.0,
+                        "recall_at_1": 1.0,
+                        "recall_at_5": 1.0,
+                        "recall_at_10": 1.0,
+                        "ndcg_at_5": 1.0,
+                        "ndcg_at_10": 1.0,
+                    }
+                },
+            }
+
+            write_results_md(out_dir, combined)
+
+            results = (out_dir / "RESULTS.md").read_text(encoding="utf-8")
+            self.assertIn("| recall@1 | 1.0000 |", results)
+            self.assertIn("| recall@5 | 1.0000 |", results)
+            self.assertIn("| recall@10 | 1.0000 |", results)
+            self.assertIn("| ndcg@5 | 1.0000 |", results)
+            self.assertIn("| ndcg@10 | 1.0000 |", results)
+            self.assertIn(
+                "| Question type | Cases | Correct | Accuracy | recall@1 | recall@5 | recall@10 | ndcg@5 | ndcg@10 | Strict correct |",
+                results,
+            )
+            self.assertIn("| single-session-user | 1 | 1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1 |", results)
 
     def test_normalize_answer_output_adds_script_owned_fields(self):
         with tempfile.TemporaryDirectory() as tmp:
